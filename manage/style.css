@@ -1,0 +1,119 @@
+* {
+  /* Resets margins and padding and box-sizing will make it so that any element with margin/padding will include that
+  margin/padding in their width/height */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* TOP MATTER */
+.header{
+  width: 100%;
+  height: 175px;
+  background-color: #a49ca4;
+  color: #f6f6ee;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 60px;
+}
+.subtitle {
+  color: white;
+  font-weight: bolder;
+}
+
+.nav{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #4a524a;
+  color: #f6f6ee;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.navItem{
+  float:left;
+  margin: 1vw;
+}
+
+#logout{
+  margin-left: auto;
+  order:2;
+}
+
+.navtitle {
+  text-decoration:none;
+  color:#f6f6ee;
+  font-weight: bolder;
+}
+
+/* BODY */
+body {
+  background-color: #f6f6ee;
+}
+
+.body {
+  padding: 50px;
+}
+
+/* COURSE/FUNCTIONS */ 
+.courseFunctionContainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px 50px;
+}
+
+.courseFunction{
+  padding: 20px;
+  width:334px;
+  height:200px;
+  background-color: #C4C4C4;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.courseFunction p{
+  margin-top: auto; 
+  align-self: flex-end left; 
+  font-size: 40px; 
+  font-weight: bold;
+  order: 2;
+  transition: 0.3s ease;
+}
+.courseFunction:hover p{
+  opacity:0;
+  transition: 0.3s ease;
+}
+.courseFunction a{
+  text-decoration: none;
+  order: 1;
+  opacity:0;
+  transition: 0.3s ease;
+}
+.courseFunction:hover a:hover{
+  opacity:0.5;
+  transition: 0.3s ease;
+}
+.courseFunction:hover a{
+  opacity:1;
+  transition: 0.3s ease;
+}
+
+
+/* performance */
+tr{
+  background: rgba(164,156,164,0.1);
+}
+tr:not(:first-child):hover{
+  background: rgba(164,156,164,0.5);
+}
+th, td{
+  border: 1px solid #4A524A;
+  padding: 5px;
+}
+table{
+  border: 5px solid #A49CA4;
+}
