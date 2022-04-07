@@ -41,10 +41,29 @@
     <!----------------- BODY ----------------->
   <div class="body">
     <div class="message">
-        <form> 
-          TA Name: <input type="text" name="name"><br>
-          <input type="submit" value="Submit">
-        </form>
+      <form action="writeOHR.php" id="form" method="post">
+        Name: <input type="text" name="Name"><br>
+        Email: <input type="email" name="Email" placeholder="@mcgill.ca"><br>
+        Job: <select name="Job">
+          <option value=""></option>
+          <option value="lecture">Lecture</option>
+          <option value="office">Office hours</option>
+          <option value="tutorial">Tutorial</option>
+        </select><br>
+        Office hours: <input type="text" name="Hours"><br>
+        Office location: <input type="text" name="Location"><br>
+        <input type="hidden" value="<?php echo $_GET["Course"]?>" name="Course"></input>
+        <input type="hidden" value="<?php echo $_GET["Term"]?>" name="Term"></input>
+        <input type="hidden" value="<?php echo $_GET["Position"]?>" name="Position"></input>
+        <input type="submit" value="Submit">
+      </form>
+
+      <?php
+        if(isset($_GET["Term"]) && isset($_GET["Course"]) && isset($_GET["Name"]) && isset($_GET["Email"]) && isset($_GET["Job"]) && isset($_GET["Hours"]) && isset($_GET["Location"])){
+          echo "<p>Office hours and responsibilities submitted!</p>";
+          echo "<p>Submission details: </p>"
+        }
+      ?>
     </div>
   </div>
 </body>

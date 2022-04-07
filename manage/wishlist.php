@@ -41,20 +41,18 @@
     <!----------------- BODY ----------------->
   <div class="body">
     <div class="message">
-        <form> 
-          Name: <input type="text" name="name"><br>
-          Email: <input type="email" name="email" placeholder="@mcgill.ca"><br>
-          Position: <input type="text" name="position"><br>
-          Job (Lecture/Office/Tutorial): <select name="job">
-            <option value=""></option>
-            <option value="lecture">Lecture</option>
-            <option value="office">Office hours</option>
-            <option value="tutorial">Tutorial</option>
-          </select><br>
-          Office hours: <input type="text" name="hours"><br>
-          Office location: <input type="text" name="location"><br>
+        <form action="writeWishlist.php" id="form" method="post"> 
+          TA Name: <input type="text" name="Name"><br>
+          <input type="hidden" value="<?php echo $_GET["Course"]?>" name="Course"></input>
+          <input type="hidden" value="<?php echo $_GET["Term"]?>" name="Term"></input>
+          <input type="hidden" value="<?php echo $_GET["Prof"]?>" name="Prof"></input>
           <input type="submit" value="Submit">
         </form>
+        <?php
+          if(isset($_GET["Name"])) {
+              echo "<p>&nbsp;</p><p>".$_GET["Name"]." submitted to the wishlist!</p>";
+            }
+        ?>
     </div>
   </div>
 </body>

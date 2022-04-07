@@ -40,41 +40,39 @@
     <!----------------- BODY ----------------->
   <div class="body">
     <div class="message">
-      <?php
-        $term = $_GET["Term"];
-        $course = $_GET["Course"];
-
-        echo "Select a TA: <select id=\"TA\">
-        <option></option>";
-        $file = fopen("performance.csv", "r") or die("Unable to open file");
-        $rows = array();
-        while(!feof($file)){
-          array_push($rows, fgetcsv($file));
-        }
-        
-        $TAs = array();
-        foreach($rows as $entry){
-          $name = $entry[2];
-          if($entry[1]===$course && !in_array($name, $TAs)) {
-            array_push($TAs, $entry[2]);
-            echo "<option>".$entry[2]."</option>";
+      Select a TA: <select id="TA">
+        <option></option>
+        <?php
+          $file = fopen("performance.csv", "r") or die("Unable to open file");
+          $rows = array();
+          while(!feof($file)){
+            array_push($rows, fgetcsv($file));
           }
-        }
-        echo "</select>";
+          
+          $TAs = array();
+          foreach($rows as $entry){
+            $name = $entry[2];
+            if($entry[1]===$_GET["Course"] && !in_array($name, $TAs)) {
+              array_push($TAs, $entry[2]);
+              echo "<option>".$entry[2]."</option>";
+            }
+          }
+          echo "</select>";
+          
+          if(isset($_GET["TA"]) && isset($_GET["Comment"])) {
+            echo "<p>&nbsp;</p><p>\"".$_GET["Comment"]."\" submitted as a comment for ".$_GET["TA"]."!</p>";
+          }
+          fclose($file);
+        ?>
+      <p>&nbsp;</p>
 
-        if(isset($_GET["TA"]) && isset($_GET["Comment"])) {
-          echo "<p>&nbsp;</p><p>\"".$_GET["Comment"]."\" submitted as a comment for ".$_GET["TA"]."!</p>";
-        }
-        echo "<p>&nbsp;</p>
-        <form action=\"writeCSV.php\" id=\"form\" style=\"display:none\" method=\"post\">
-          <input type=\"hidden\" value=$course name=\"Course\"></input>
-          <input type=\"hidden\" value=$term name=\"Term\"></input>
-          <input type=\"hidden\" id=\"name\" name=\"TA\"></input>
-          <textarea id=\"textbox\" name=\"Comment\"></textarea>
-          <input type=\"submit\" value=\"Submit\"></input>
-        </form>";
-        fclose($file);
-      ?>
+      <form action="writePerformance.php" id="form" style="display:none" method="post">
+        <input type="hidden" value="<?php echo $_GET["Course"]?>" name="Course"></input>
+        <input type="hidden" value="<?php echo $_GET["Term"]?>" name="Term"></input>
+        <input type="hidden" id="name" name="TA"></input>
+        <textarea id="textbox" name="Comment"></textarea>
+        <input type="submit" value="Submit"></input>
+      </form>
     </div>
   </div>
 
