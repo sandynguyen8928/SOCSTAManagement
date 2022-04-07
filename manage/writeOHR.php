@@ -1,5 +1,5 @@
 <?php
-  $comment = "\n\"".$_POST["Name"] . "\"," . $_POST["Email"] . ",\"" . $_POST["Job"] . "\"," . $_POST["Hours"] . ",\"" . $_POST["Location"] . "\"";
+  $comment = "\n".$_POST["Term"] . "," . $_POST["Course"] . ",\"" . $_POST["Name"] . "\"," . $_POST["Email"] . "," . $_POST["Position"] . ",\"" . $_POST["Job"] . "\",\"" . $_POST["Hours"] . "\",\"" . $_POST["Location"] . "\"";
    
   $file = fopen("OHR.csv", "a") or die("Unable to open file");
   fwrite($file, $comment);
