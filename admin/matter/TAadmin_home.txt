@@ -1,0 +1,24 @@
+    <!----------------- BODY ----------------->
+  <div class="body">
+    <div class="courseFunctionContainer">
+      <div class="courseFunction">
+        <a class="TAadminTitle" href="TAadmin.php?Page=TAadmin_import">Import TA Cohort</a>
+      </div>
+
+      <div class="courseFunction">
+          <p>Get a TA's Info</p>
+      </div>
+
+      <div class="courseFunction">
+          <p>Get a Course's TA History</p>
+      </div>
+
+      <div class="courseFunction">
+          <p>Add a TA</p>
+      </div>
+
+      <div class="courseFunction">
+          <p>Remove a TA</p>
+      </div>
+    </div>
+  </div>
