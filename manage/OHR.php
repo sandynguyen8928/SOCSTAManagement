@@ -60,8 +60,12 @@
 
       <?php
         if(isset($_GET["Term"]) && isset($_GET["Course"]) && isset($_GET["Name"]) && isset($_GET["Email"]) && isset($_GET["Job"]) && isset($_GET["Hours"]) && isset($_GET["Location"])){
-          echo "<p>Office hours and responsibilities submitted!</p>";
-          echo "<p>Submission details: </p>"
+          echo "<p>Office hours and responsibilities submitted!</p>
+          <p>Submission details: </p>
+          <p>Name: ".$_GET["Name"]."</p>
+          <p>Email: ".$_GET["Email"]."</p>
+          <p>Job: ".$_GET["Job"]."</p>
+          <p>Hours: ".$_Get;
         }
       ?>
     </div>
