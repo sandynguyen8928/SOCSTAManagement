@@ -1,0 +1,3 @@
+term_month_year, TA_name, student_ID, legal_name, email, grad_ugrad, supervisor_name, priority(yes/no), hours(90/180), date_applied, location, phone, degree, courses_applied_for, open_to_other_courses(yes/no), notes
+Fall September 2022, Jennifer Lawrence, 260989203, Jennifer Lawrence, jennifer.lawrence@mail.mcgill.ca, Brad Pitt, yes, 90, 20/05/22, McGill, 5141234567, Master's, COMP 307, no, nothing
+WINTER2023, Emma Chamberlain, 260982209, Emma Chamberlain, emma.chamberlain@mail.mcgill.ca, Brad Pitt, yes, 180, 27/09/22, McGill, 5149876543, PhD, COMP 307, no, nothing
