@@ -41,35 +41,31 @@
     <!----------------- BODY ----------------->
   <div class="body">
     <div class="message">
-      <form action="writeOHR.php" id="form" method="post">
-        Name: <input type="text" name="Name"><br>
-        Email: <input type="email" name="Email" placeholder="@mcgill.ca"><br>
-        Job: <select name="Job">
-          <option value=""></option>
-          <option value="lecture">Lecture</option>
-          <option value="office">Office hours</option>
-          <option value="tutorial">Tutorial</option>
-        </select><br>
-        Office hours: <input type="text" name="Hours"><br>
-        Office location: <input type="text" name="Location"><br>
-        <input type="hidden" value="<?php echo $_GET["Course"]?>" name="Course"></input>
-        <input type="hidden" value="<?php echo $_GET["Term"]?>" name="Term"></input>
-        <input type="hidden" value="<?php echo $_GET["Position"]?>" name="Position"></input>
-        <input type="submit" value="Submit">
-      </form>
-
-      <?php
-        if(isset($_GET["Term"]) && isset($_GET["Course"]) && isset($_GET["Name"]) && isset($_GET["Email"]) && isset($_GET["Job"]) && isset($_GET["Hours"]) && isset($_GET["Location"])){
-          echo "<p>&nbsp;</p>
-          <p>Office hours and responsibilities submitted!</p>
-          <p>Submission details: </p>
-          <blockquote>Name: ".$_GET["Name"]."<br>
-          Email: ".$_GET["Email"]."<br>
-          Job: ".$_GET["Job"]."<br>
-          Office hours: ".$_GET["Hours"]."<br>
-          Office location: ".$_GET["Location"]."</blockquote>";
-        }
-      ?>
+      Select a teacher: <select id="TA">
+        <option></option>
+        <?php
+          $file = fopen("OHR.csv", "r") or die("Unable to open file");
+          $rows = array();
+          while(!feof($file)){
+            array_push($rows, fgetcsv($file));
+          }
+          
+          $TAs = array();
+          foreach($rows as $entry){
+            $name = $entry[2];
+            if($entry[1]===$_GET["Course"] && !in_array($name, $TAs)) {
+              array_push($TAs, $entry[2]);
+              echo "<option>".$entry[2]."</option>";
+            }
+          }
+          echo "</select>";
+          
+          if(isset($_GET["TA"]) && isset($_GET["Comment"])) {
+            echo "<p>&nbsp;</p><p>\"".$_GET["Comment"]."\" submitted as a comment for ".$_GET["TA"]."!</p>";
+          }
+          fclose($file);
+        ?>
+      <p>&nbsp;</p>
     </div>
   </div>
 </body>

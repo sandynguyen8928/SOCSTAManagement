@@ -1,5 +1,5 @@
 <?php
-  $comment = "\n".$_POST["Term"] . "," . $_POST["Course"] . ",\"" . $_POST["TA"] . "\",\"" . $_POST["Comment"] . "\"";
+  $comment = "\n".$_POST["Term"] . "," . $_POST["Course"] . "," . $_POST["TA"] . ",\"" . $_POST["Comment"] . "\"";
    
   $file = fopen("performance.csv", "a") or die("Unable to open file");
   fwrite($file, $comment);

@@ -52,7 +52,7 @@
           $TAs = array();
           foreach($rows as $entry){
             $name = $entry[2];
-            if($entry[1]===$_GET["Course"] && !in_array($name, $TAs)) {
+            if($entry[0]===$_GET["Term"] && $entry[1]===$_GET["Course"] && !in_array($name, $TAs)) {
               array_push($TAs, $entry[2]);
               echo "<option>".$entry[2]."</option>";
             }
