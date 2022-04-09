@@ -89,21 +89,13 @@ body {
 a.TAadminTitle:visited {
   color: black;
 }
+
 .TAadminTitle:hover {
   opacity:0;
   transition: 0.3s ease;
 }
-/* .courseFunction a{
-  text-decoration: none;
-  order: 1;
-  opacity:0;
-  transition: 0.3s ease;
-} */
-/* .courseFunction:hover a:hover{
-  opacity:0.5;
-  transition: 0.3s ease;
+
+.optionTitle {
+  text-align: center;
+  padding-bottom: 50px;
 }
-.courseFunction:hover a{
-  opacity:1;
-  transition: 0.3s ease;
-} */

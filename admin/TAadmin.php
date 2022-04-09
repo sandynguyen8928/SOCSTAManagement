@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-    </head>
-
     <body>
         <?php
         //
         // ----------------- MAIN PROGRAM --------------------------------
         //
             // --------- COMMON WEBPAGE TOP ---------
-            display("matter/header.txt");
+            display("matter/header.html");
 
             // --------- ROUTING WEBPAGE BODY -----------
             if (sizeof($_GET)==0 || $_GET["Page"]=="Home") {
 
             // HOME PAGE
-            display("matter/TAadmin_home.txt");
+            display("matter/TAadmin_home.html");
             } else if ($_GET["Page"]=="TAadmin_import") {
 
             // INFO PAGE

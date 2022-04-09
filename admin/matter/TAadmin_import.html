@@ -1,10 +1,23 @@
+<!-- TA Admin Import -->
+
 <div class="allPages">
+    <h2 class="optionTitle">What do you want to import?</h2>
+
+    <form action="TAadmin_import.php" method="post">
+
     <div class="courseFunctionContainer">
+
         <div class="courseFunction">
-            <a class="TAadminTitle">Import TA Cohort</a>
+            <label for="TACohort.csv">TA Cohort</label>
+            <input type="radio" id="TACohort.csv" value="TACohort.csv" name="import">
+
         </div>
         <div class="courseFunction">
-            <a class="TAadminTitle">Import Course Quota</a>
+            <label for="CourseQuota">Course Quota</label>
+            <input type="radio" id="CourseQuota.csv" value="CourseQuota.csv" name="import">
         </div>
-      </div>
+    </div>
+
+    <input type="submit" value="Submit">
+    </form>
 </div>
