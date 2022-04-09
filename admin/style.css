@@ -89,6 +89,9 @@ body {
 a.TAadminTitle:visited {
   color: black;
 }
+a.TAadminTitle {
+  color: black;
+}
 
 .TAadminTitle:hover {
   opacity:0;

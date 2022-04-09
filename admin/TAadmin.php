@@ -18,7 +18,12 @@
 
             // INFO PAGE
             display("matter/TAadmin_import.html");
-            } else {
+            } else if ($_GET["Page"]=="TAadmin_info") {
+
+                // INFO PAGE
+                display("matter/TAadmin_info.html");
+                } else {
+    
 
             // ERROR PAGE
             echo "404: Invalid Page!";
