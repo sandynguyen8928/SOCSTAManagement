@@ -41,23 +41,40 @@
 
     <?php
 
-        $myWritefile = fopen('TADatabase.csv', 'w') or die('Unable to open files!');
+        $myWritefileTA = fopen('TADatabase.csv', 'a');
+        $myWritefileCourse = fopen('CourseDatabase.csv', 'a');
 
         $import = $_POST["import"];
-
         $myReadfile = fopen($import, 'r') or die('Unable to open file!');
 
         if ($myReadfile) {
-            while (($line = fgets($myReadfile)) !== false) {
+            if ($import == "TACohort.csv") {
 
-                $param = explode(",", $line);
-                fwrite($myWritefile, $param[1]);
-                fwrite($myWritefile, "\n");
+                while (($line = fgets($myReadfile)) !== false) {
+                    $param = explode(",", $line);
+                    fwrite($myWritefileTA, "\n");
+
+                    fwrite($myWritefileTA, $param[0]);
+                    fwrite($myWritefileTA, ",");
+
+                    fwrite($myWritefileTA, $param[1]);
+                    fwrite($myWritefileTA, ",");
+
+                    fwrite($myWritefileTA, $param[2]);
+                    fwrite($myWritefileTA, ",");
+
+                    fwrite($myWritefileTA, $param[13]);
+                    fwrite($myWritefileTA, ",");
+
+                    fwrite($myWritefileTA, $param[14]);
+                }
+            }
+            else {
             }
         }
     ?>
 
-    <!-- TA Admin Import -->
+<!-- TA Admin Import -->
 
 <div class="allPages">
     <h2 class="optionTitle">What do you want to import?</h2>
@@ -67,18 +84,19 @@
     <div class="courseFunctionContainer">
 
         <div class="courseFunction">
-            <label for="TACohort.csv">TA Cohort</label>
+            <label for="TACohort.csv" class="TAadminTitle">TA Cohort</label>
             <input type="radio" id="TACohort.csv" value="TACohort.csv" name="import">
 
         </div>
         <div class="courseFunction">
-            <label for="CourseQuota">Course Quota</label>
-            <input type="radio" id="CourseQuota" value="CourseQuota" name="import">
+            <label for="CourseQuota.csv" class="TAadminTitle">Course Quota</label>
+            <input type="radio" id="CourseQuota.csv" value="CourseQuota.csv" name="import">
         </div>
     </div>
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="submitButton">
     </form>
+    <h2 class="optionTitle">The import has been successful!</h2>
 </div>
     </body>
 </html>

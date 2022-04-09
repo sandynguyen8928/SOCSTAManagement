@@ -99,3 +99,14 @@ a.TAadminTitle:visited {
   text-align: center;
   padding-bottom: 50px;
 }
+
+.submitButton {
+  padding: 15px;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background-color: #4a524a;
+  color: #f6f6ee;
+  font-weight: bold;
+  cursor: pointer;
+}
