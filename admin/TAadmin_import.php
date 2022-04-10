@@ -41,14 +41,14 @@
 
     <?php
 
-        $myWritefileTA = fopen('TADatabase.csv', 'a');
-        $myWritefileCourse = fopen('CourseDatabase.csv', 'a');
+        $myWritefileTA = fopen('database/TADatabase.csv', 'a');
+        $myWritefileCourse = fopen('database/CourseDatabase.csv', 'a');
 
         $import = $_POST["import"];
         $myReadfile = fopen($import, 'r') or die('Unable to open file!');
 
         if ($myReadfile) {
-            if ($import == "TACohort.csv") {
+            if ($import == "database/TACohort.csv") {
 
                 while (($line = fgets($myReadfile)) !== false) {
                     $param = explode(",", $line);
@@ -77,9 +77,10 @@
 <!-- TA Admin Import -->
 
 <div class="allPages">
-    <h2 class="optionTitle">What do you want to import?</h2>
 
     <form action="TAadmin_import.php" method="post">
+
+    <h2 class="optionTitle">What do you want to import?</h2>
 
     <div class="courseFunctionContainer">
 
@@ -96,7 +97,6 @@
 
     <input type="submit" value="Submit" class="submitButton">
     </form>
-    <h2 class="optionTitle">The import has been successful!</h2>
 </div>
     </body>
 </html>

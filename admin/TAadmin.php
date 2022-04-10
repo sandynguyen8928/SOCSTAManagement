@@ -20,9 +20,9 @@
             display("matter/TAadmin_import.html");
             } else if ($_GET["Page"]=="TAadmin_info") {
 
-                // INFO PAGE
-                display("matter/TAadmin_info.html");
-                } else {
+            // INFO PAGE
+            display("TAadmin_info.php");
+            } else {
     
 
             // ERROR PAGE
