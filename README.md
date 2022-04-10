@@ -5,6 +5,6 @@ course_num -> e.g., this course would be filed under "COMP 307"
 
 Database:
 
-TAs: Jennifer Lawrence, Bob Smith, John Doe, Bob Smith and Jane Winston
+TAs: Jennifer Lawrence, John Doe, Bob Smith and Jane Winston
 
 Professor: Joseph Vyhibal
