@@ -73,15 +73,17 @@ body {
   background-color: #C4C4C4;
   border-radius: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 .courseFunction p{
-  margin-top: auto; 
-  align-self: flex-end left; 
+  transition: 0.3s ease;
+}
+.course{
   font-size: 40px; 
   font-weight: bold;
-  order: 2;
-  transition: 0.3s ease;
+}
+.term{
+  font-size: 15px; 
 }
 .courseFunction:hover p{
   opacity:0;
@@ -89,7 +91,8 @@ body {
 }
 .courseFunction a{
   text-decoration: none;
-  order: 1;
+  margin-bottom: auto; 
+  align-self: flex-end left; 
   opacity:0;
   transition: 0.3s ease;
 }
@@ -107,13 +110,18 @@ body {
 tr{
   background: rgba(164,156,164,0.1);
 }
-tr:not(:first-child):hover{
+td.unclaimed:hover{
+  background: rgba(164,156,164,0.5);
+}
+td.claimed{
   background: rgba(164,156,164,0.5);
 }
 th, td{
   border: 1px solid #4A524A;
   padding: 5px;
+  width: 16.5%;
+  text-align: center;
 }
-table{
+/* table{
   border: 5px solid #A49CA4;
-}
+} */
