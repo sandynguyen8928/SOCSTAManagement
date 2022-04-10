@@ -40,28 +40,4 @@
   </div>
 
 <div class="allPages">
-    <h2 class="optionTitle">Select a TA:</h2>
-
-    <form action="showTAinfo.php" method="get">
-
-        <select name="TA" id="TA" value="TA">
-          <?php
-          $myfile = fopen("database/TADatabase.csv", "r");
-
-          $array = array();
-
-          if ($myfile) {
-            while (($line = fgets($myfile)) !== false) {
-              $param = explode(",", $line);
-              $array[] = $param[1];
-            }
-          }
-          foreach($array as $name) {
-            echo "<option>".$name."</option>";
-          }
-          ?>
-        </select>
-
-    <input type="submit" value="Submit" class="submitButton">
-    </form>
 </div>
