@@ -1,3 +1,5 @@
 term_month_year, TA_name, student_ID, open_to_other_courses(yes/no), notes
-Fall September 2022, Jennifer Lawrence, 260989203, no, nothing
-Fall September 2022, Emma Chamberlain, 260982209, no, nothing
+Fall September 2021,Jennifer Lawrence,260989203,no,"I enjoy Web Development!"
+Fall September 2021,John Doe,260982209,yes,"Recently built a website"
+Winter January 2022,Bob Smith,260987364,yes,"I love design pattern!"
+Winter January 2022,Jane Winston,260123987,no,"I want to be a great software engineer"
