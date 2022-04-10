@@ -49,10 +49,8 @@
 
         if ($myReadfile) {
             if ($import == "database/TACohort.csv") {
-
                 while (($line = fgets($myReadfile)) !== false) {
                     $param = explode(",", $line);
-                    fwrite($myWritefileTA, "\n");
 
                     fwrite($myWritefileTA, $param[0]);
                     fwrite($myWritefileTA, ",");
@@ -87,7 +85,6 @@
         <div class="courseFunction">
             <label for="TACohort.csv" class="TAadminTitle">TA Cohort</label>
             <input type="radio" id="TACohort.csv" value="TACohort.csv" name="import">
-
         </div>
         <div class="courseFunction">
             <label for="CourseQuota.csv" class="TAadminTitle">Course Quota</label>
@@ -96,6 +93,7 @@
     </div>
 
     <input type="submit" value="Submit" class="submitButton">
+    <h2 class="optionTitle">The import has been successful!</h2>
     </form>
 </div>
     </body>

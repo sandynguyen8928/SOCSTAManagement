@@ -42,9 +42,9 @@
 <div class="allPages">
     <h2 class="optionTitle">Select a TA:</h2>
 
-    <form action="showTAinfo.php" method="get">
+    <form action="showTAinfo.php" method="post">
 
-        <select name="TA" id="TA" value="TA">
+        <select name="myTA" id="myTA" value="myTA">
           <?php
           $myfile = fopen("database/TADatabase.csv", "r");
 

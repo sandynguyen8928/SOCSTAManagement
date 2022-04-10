@@ -1,4 +1,6 @@
 term_month_year,course_num,TA_name,comment
-Winter January 2022,COMP 307,John Doe,"Amazing!!!"
-Winter January 2022,COMP 307,Bob Smith,"Bob is lazy."
-Winter January 2022,COMP 303,Jane Doe,"Jane is an ok TA."
+Winter January 2022,COMP 307,"John Doe","Amazing!!!"
+Winter January 2022,COMP 307,"Bob Smith","Bob is lazy."
+Winter January 2022,COMP 303,"Jane Doe","Jane is an ok TA."
+Fall September 2022,COMP 322,Jennifer Lawrence,260989203,Amazing person!
+Fall September 2022,COMP 223,Emma Chamberlain,260982209,She's alright

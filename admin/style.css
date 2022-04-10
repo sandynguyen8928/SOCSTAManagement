@@ -113,3 +113,7 @@ a.TAadminTitle {
   font-weight: bold;
   cursor: pointer;
 }
+
+.infoDisplay {
+  padding: 10px 0px 10px 0px;
+}
