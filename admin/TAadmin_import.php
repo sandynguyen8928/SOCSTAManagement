@@ -61,10 +61,10 @@
                     fwrite($myWritefileTA, $param[2]);
                     fwrite($myWritefileTA, ",");
 
-                    fwrite($myWritefileTA, $param[13]);
+                    fwrite($myWritefileTA, $param[14]);
                     fwrite($myWritefileTA, ",");
 
-                    fwrite($myWritefileTA, $param[14]);
+                    fwrite($myWritefileTA, $param[15]);
                 }
             }
             else {

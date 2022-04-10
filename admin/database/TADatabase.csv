@@ -1,3 +1,3 @@
-term_month_year,TA_name,student_ID,courses_applied_for,open_to_other_courses(yes/no)
-Fall September 2022,Jennifer Lawrence,260989203,no,nothing
-Fall September 2022,Emma Chamberlain,260982209,no,nothing
+term_month_year, TA_name, student_ID, open_to_other_courses(yes/no), notes
+Fall September 2022, Jennifer Lawrence, 260989203, no, nothing
+Fall September 2022, Emma Chamberlain, 260982209, no, nothing
