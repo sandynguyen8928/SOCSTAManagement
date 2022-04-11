@@ -1,3 +1,3 @@
-Term_month_year,Course_num,Course_name,TA, student_ID, assigned_hours
-Fall September 2021,COMP 307,Principles of Web Development,Jennifer Lawrence,260989203,Monday 10-11am; Monday 11am-12pm; Monday 12-1pm
-Winter January 2022,COMP 303,Software Design,Bob Smith,Tuesday 11am-12pm;Tuesday 12-1pm;Tuesday 1-2pm
+Term_month_year,Course_num,Course_name,TA_name,student_ID, assigned_hours
+Winter January 2022,COMP 303,Software Design,Bob Smith,260986750,Tuesday 11am-12pm;Tuesday 12-1pm;Tuesday 1-2pm
+Fall September 2021,COMP 307,Principles of Web Development,Jennifer Lawrence,260989203,Monday 1:00PM

@@ -44,22 +44,7 @@
 
 <div class="allPages">
 
-    <form action="addRemoveTA.php" method="post">
-
-    <h2 class="optionTitle">What do you want to do?</h2>
-
-    <div class="courseFunctionContainer">
-
-        <div class="courseFunction">
-            <label for="add_TA" class="TAadminTitle">Add a TA</label>
-            <input type="radio" id="add_TA" value="add_TA" name="addremove">
-
-        </div>
-        <div class="courseFunction">
-            <label for="remove_TA" class="TAadminTitle">Remove a TA</label>
-            <input type="radio" id="remove_TA" value="remove_TA" name="addremove">
-        </div>
-</div>
+    <form action="addTA.php" method="post">
 
 <div class="courseFunctionContainer">
 <div class="courseFunction">
@@ -80,9 +65,7 @@
           }
           ?>
         </select>
-        </div>
-
-        <div class="courseFunction">
+        
     <select name="myCourse" id="myCourse" value="myCourse">
         <?php
         $myfile = fopen("database/CourseDatabase.csv", "r");
@@ -99,6 +82,76 @@
         echo "<option>".$name."</option>";
         }
         ?>
+    </select>
+
+    <select name="myTerm" id="myTerm" value="myTerm">
+    <option>Term</option>
+        <option>Fall September</option>
+        <option>Winter January</option>
+        <option>Summer May</option>
+    </select>
+
+    <select name="myYear" id="myYear" value="myYear">
+    <option>Year</option>
+        <option>2010</option>
+        <option>2011</option>
+        <option>2012</option>
+        <option>2013</option>
+        <option>2014</option>
+        <option>2015</option>
+        <option>2016</option>
+        <option>2017</option>
+        <option>2018</option>
+        <option>2019</option>
+        <option>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
+        <option>2025</option>
+        <option>2026</option>
+        <option>2027</option>
+        <option>2028</option>
+        <option>2029</option>
+        <option>2030</option>
+
+    </select>
+    <select name="myDay" id="myDay" value="myDay">
+        <option>Day</option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+    </select>
+    <select name="myTime" id="myTime" value="myTime">
+        <option>Time</option>
+        <option>8:00AM</option>
+        <option>8:30AM</option>
+        <option>9:00AM</option>
+        <option>9:30AM</option>
+        <option>10:00AM</option>
+        <option>10:30AM</option>
+        <option>11:00AM</option>
+        <option>11:30AM</option>
+        <option>12:00PM</option>
+        <option>12:30PM</option>
+        <option>1:00PM</option>
+        <option>1:30PM</option>
+        <option>2:00PM</option>
+        <option>2:30PM</option>
+        <option>3:00PM</option>
+        <option>3:30PM</option>
+        <option>4:00PM</option>
+        <option>4:30PM</option>
+        <option>5:00PM</option>
+        <option>5:30PM</option>
+        <option>6:00PM</option>
+        <option>6:30PM</option>
+        <option>7:00PM</option>
+        <option>7:30PM</option>
+        <option>8:00PM</option>
+        <option>8:30PM</option>
     </select>
     </div>
     </div>

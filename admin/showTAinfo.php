@@ -47,8 +47,8 @@
     
     $myfile1 = fopen("database/TADatabase.csv", "r");
 
-    $myfile3 = fopen("../manage/performance.csv", "r");
-    $myfile5 = fopen("../manage/wishlist.csv", "r");
+    $myfile3 = fopen("../manage/databases/performance.csv", "r");
+    $myfile5 = fopen("../manage/databases/wishlist.csv", "r");
     $array = array();
 
     if ($myfile1) {

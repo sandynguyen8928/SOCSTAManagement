@@ -26,11 +26,15 @@
 
                 // INFO PAGE
                 display("matter/TAadmin_history.html");
-                } else if ($_GET["Page"]=="TAadmin_addremove") {
+                } else if ($_GET["Page"]=="TAadmin_add") {
 
                     // INFO PAGE
-                    display("TAadmin_addremove.php");
-                    } else {
+                    display("TAadmin_add.php");
+                    } else if ($_GET["Page"]=="TAadmin_remove") {
+
+                        // INFO PAGE
+                        display("TAadmin_remove.php");
+                        } else {
     
 
             // ERROR PAGE

@@ -40,26 +40,11 @@
   </div>
 
 
-<!-- TA Admin History -->
+<!-- TA Admin Add Remove -->
 
 <div class="allPages">
 
-    <form action="TAadmin_addremove.php" method="post">
-
-    <h2 class="optionTitle">What do you want to do?</h2>
-
-    <div class="courseFunctionContainer">
-
-        <div class="courseFunction">
-            <label for="add_TA" class="TAadminTitle">Add a TA</label>
-            <input type="radio" id="add_TA" value="add_TA" name="addremove">
-
-        </div>
-        <div class="courseFunction">
-            <label for="remove_TA" class="TAadminTitle">Remove a TA</label>
-            <input type="radio" id="remove_TA" value="remove_TA" name="addremove">
-        </div>
-</div>
+    <form action="removeTA.php" method="post">
 
 <div class="courseFunctionContainer">
 <div class="courseFunction">
@@ -105,60 +90,4 @@
 
     <input type="submit" value="Submit" class="submitButton">
     </form>
-    
-    <?php
-
-    $decision = $_POST["addremove"];
-    $course = $_POST["myCourse"];
-    $TA = $_POST["myTA"];
-
-    $myfile = fopen("database/TACourseHistory.csv", "r");
-    $array = array();
-
-    if ($decision == "add_TA") {
-        if ($myfile) {
-            $present=0;
-          while (($line = fgets($myfile1)) !== false) {
-            $param = explode(",", $line);
-            if ($param[1] == $name) {
-                $array[] = $param[4];
-                $present=1;
-                break;
-            }
-          }
-          if ($present == 0) {
-            $array[] = " ";
-          }
-        }
-    }
-    else {
-        $present = 0;
-        $row = 0;
-        if ($myfile) {
-          while (($line = fgets($myfile)) !== false) {
-            $param = explode(",", $line);
-            if ($param[1] == $course && $param[3] == $TA) {
-                $contents = file_get_contents("database/TACourseHistory.csv");
-                $contents = str_replace($line,'',$contents);
-                file_put_contents("database/TACourseHistory.csv", $contents);
-                $present = 1;
-                echo "<h2 class=optionTitle>";
-                echo $TA;
-                echo " has been successfully removed from ";
-                echo $course;
-                echo "!</h2>";
-                break;
-            }
-
-          }
-          if ($present == 0) {
-              echo "<h2 class=optionTitle>The TA and Course chosen don't match with our database. Please try again.<h2>";
-          }
-        }
-    }
-
-
-
-    ?>
-    
 </div>
