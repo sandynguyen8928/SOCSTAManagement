@@ -11,3 +11,9 @@ TAs: Jennifer Lawrence, John Doe, Bob Smith and Jane Winston
 Professors: Joseph Vyhibal, Jin Guo
 
 Courses: COMP 307, COMP 303
+
+TACohort.csv and CourseQuota.csv --> CSV files from McGill
+
+TADatabase.csv and CourseDatabase.csv --> Filtered CSV file from TACohort.csv and CourseQuota.csv
+
+TACourseHistory.csv --> List of all TAs and their courses assignment
