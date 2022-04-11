@@ -96,11 +96,11 @@
     <div class="courseFunctionContainer">
 
         <div class="courseFunction">
-            <label for="TACohort.csv" class="TAadminTitle">TA Cohort</label>
+            <label for="TACohort.csv" class="importAddTitle">TA Cohort</label>
             <input type="radio" id="TACohort.csv" value="TACohort.csv" name="import">
         </div>
         <div class="courseFunction">
-            <label for="CourseQuota.csv" class="TAadminTitle">Course Quota</label>
+            <label for="CourseQuota.csv" class="importAddTitle">Course Quota</label>
             <input type="radio" id="CourseQuota.csv" value="CourseQuota.csv" name="import">
         </div>
     </div>

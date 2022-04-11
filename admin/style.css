@@ -76,29 +76,6 @@ body {
   flex-direction: column;
 }
 
-/* .TAadminTitle{
-  margin-top: auto; 
-  align-self: flex-end left; 
-  font-size: 40px; 
-  font-weight: bold;
-  order: 2;
-  transition: 0.3s ease;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-a.TAadminTitle:visited {
-  color: black;
-}
-a.TAadminTitle {
-  color: black;
-}
-
-.TAadminTitle:hover {
-  opacity:0;
-  transition: 0.3s ease;
-} */
-
  /* IMPORT/ADD */
 .courseFunctionImportAdd{
   padding: 20px;
@@ -150,6 +127,9 @@ a.importAddTitle:visited {
   color: #f6f6ee;
   font-weight: bold;
   cursor: pointer;
+  display: block;
+  margin:0 auto;
+  margin-top: 30px;
 }
 
 .infoDisplay {

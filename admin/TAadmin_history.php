@@ -48,7 +48,7 @@
     <div class="courseFunctionContainer">
 
         <div class="courseFunction">
-            <label for="TA_history" class="TAadminTitle">By TA</label>
+            <label for="TA_history" class="importAddTitle">By TA</label>
             <input type="radio" id="TA_history" value="TA_history" name="history">
 
             <select id="myTA" value="myTA" name="option[]">
@@ -73,7 +73,7 @@
 
         </div>
         <div class="courseFunction">
-            <label for="Course_history" class="TAadminTitle">By Course</label>
+            <label for="Course_history" class="importAddTitle">By Course</label>
             <input type="radio" id="Course_history" value="Course_history" name="history">
 
             <select id="myCourse" value="myCourse" name="option[]">

@@ -42,7 +42,7 @@
 <div class="allPages">
     <h2 class="optionTitle">Select a TA:</h2>
 
-    <form action="showTAInfo.php" method="post">
+    <form action="showTAInfo.php" method="post" class="optionTitle">
 
         <select name="myTA" id="myTA" value="myTA">
           <?php
