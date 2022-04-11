@@ -1,0 +1,167 @@
+    <!----------------- BODY ----------------->
+    <div class="body">
+      <div class="message">
+        Select a TA: <select id="TA">
+          <option></option>
+          </select>
+        <p>&nbsp;</p>
+        <table id="schedule" style="display:none">
+          <thead><th></th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th></thead>
+          <tr><th>8:00</th><td class="unclaimed" id="Monday 8-9am"></td><td class="unclaimed" id="Tuesday 8-9am"></td><td class="unclaimed" id="Wednesday 8-9am"></td><td class="unclaimed" id="Thursday 8-9am"></td><td class="unclaimed" id="Friday 8-9am"></td></tr>
+          <tr><th>9:00</th><td class="unclaimed" id="Monday 9-10am"></td><td class="unclaimed" id="Tuesday 9-10am"></td><td class="unclaimed" id="Wednesday 9-10am"></td><td class="unclaimed" id="Thursday 9-10am"></td><td class="unclaimed" id="Friday 9-10am"></td></tr>
+          <tr><th>10:00</th><td class="unclaimed" id="Monday 10-11am"></td><td class="unclaimed" id="Tuesday 10-11am"></td><td class="unclaimed" id="Wednesday 10-11am"></td><td class="unclaimed" id="Thursday 10-11am"></td><td class="unclaimed" id="Friday 10-11am"></td></tr>
+          <tr><th>11:00</th><td class="unclaimed" id="Monday 11am-12pm"></td><td class="unclaimed" id="Tuesday 11am-12pm"></td><td class="unclaimed" id="Wednesday 11am-12pm"></td><td class="unclaimed" id="Thursday 11am-12pm"></td><td class="unclaimed" id="Friday 11am-12pm"></td></tr>
+          <tr><th>12:00</th><td class="unclaimed" id="Monday 12-1pm"></td><td class="unclaimed" id="Tuesday 12-1pm"></td><td class="unclaimed" id="Wednesday 12-1pm"></td><td class="unclaimed" id="Thursday 12-1pm"></td><td class="unclaimed" id="Friday 12-1pm"></td></tr>
+          <tr><th>13:00</th><td class="unclaimed" id="Monday 1-2pm"></td><td class="unclaimed" id="Tuesday 1-2pm"></td><td class="unclaimed" id="Wednesday 1-2pm"></td><td class="unclaimed" id="Thursday 1-2pm"></td><td class="unclaimed" id="Friday 1-2pm"></td></tr>
+          <tr><th>14:00</th><td class="unclaimed" id="Monday 2-3pm"></td><td class="unclaimed" id="Tuesday 2-3pm"></td><td class="unclaimed" id="Wednesday 2-3pm"></td><td class="unclaimed" id="Thursday 2-3pm"></td><td class="unclaimed" id="Friday 2-3pm"></td></tr>
+          <tr><th>15:00</th><td class="unclaimed" id="Monday 3-4pm"></td><td class="unclaimed" id="Tuesday 3-4pm"></td><td class="unclaimed" id="Wednesday 3-4pm"></td><td class="unclaimed" id="Thursday 3-4pm"></td><td class="unclaimed" id="Friday 3-4pm"></td></tr>
+          <tr><th>16:00</th><td class="unclaimed" id="Monday 4-5pm"></td><td class="unclaimed" id="Tuesday 4-5pm"></td><td class="unclaimed" id="Wednesday 4-5pm"></td><td class="unclaimed" id="Thursday 4-5pm"></td><td class="unclaimed" id="Friday 4-5pm"></td></tr>
+          <tr><th>17:00</th><td class="unclaimed" id="Monday 5-6pm"></td><td class="unclaimed" id="Tuesday 5-6pm"></td><td class="unclaimed" id="Wednesday 5-6pm"></td><td class="unclaimed" id="Thursday 5-6pm"></td><td class="unclaimed" id="Friday 5-6pm"></td></tr>
+        </table>
+        <p>&nbsp;</p>
+        <form action="writeOHR.php" id="form" style="display:none" method="post">
+          <input type="hidden" value="COURSE" name="Course"></input>
+          <input type="hidden" value="TERM" name="Term"></input>
+          <input type="hidden" id="name" name="Name"></input>
+          Time: <p id="OHText"></p><input type="hidden" id="OH" name="Hours"></input><br>
+          Preferred email:<input type="email" placeholder="@mcgill.ca or @mail.mcgill.ca" name="Email"><br>
+          Position: <select name="Position">
+            <option></option>
+            <option>Instructor</option>
+            <option>Teaching Assistant</option>
+            <option>Course Assistant</option>
+          </select><br>
+          Job: <select name="Job">
+            <option></option>
+            <option>Lecture</option>
+            <option>Office Hour</option>
+            <option>Tutorial</option>
+          </select><br>
+          Location: <input type="text" name="Location"></input><br>
+          Other responsibilities: <br><textarea name="Responsibilities"></textarea>
+          <input type="submit" value="Submit"></input>
+        </form>
+      </div>
+    </div>
+  
+    <script>
+          window.onload = function() {
+      
+      try{
+        var asyncReq = new XMLHttpRequest();
+        asyncReq.addEventListener("readystatechange", function(){
+          if(asyncReq.readyState==4 && asyncReq.status==200){
+            var text = this.responseText;
+            var entries = new Array();
+            var entry = "";
+            for(var i=0; i<text.length; i++){
+              if(text[i]==="\n") {
+                entries.push(entry);
+                entry="";
+              }
+              else entry+=text[i];
+            }
+            entries.push(entry);
+            var names = new Array();
+            var select = document.getElementById("TA");
+            for(var i=1; i<entries.length; i++){
+              var data = entries[i].split(',');
+              var term = data[0];
+              var course = data[1];
+              var name = data[2];
+              if(course==="COURSE" && term==="TERM" && !names.includes(name)){
+                
+                names.push(name);
+                var newOption = document.createElement("option");
+                newOption.innerHTML = name;
+                select.appendChild(newOption);
+              }
+            }
+          }
+          
+        });
+        asyncReq.open("GET", "databases/OHR.csv", true);
+        asyncReq.send();
+      } catch (exception) {
+        alert("Request failed.");
+      }
+    };
+
+      var selection = document.getElementById("TA");
+      selection.addEventListener("change", function(){
+        var TA = selection.options[selection.selectedIndex].text;
+        showSchedule();
+        document.getElementById("form").setAttribute("style","display:block");
+        document.getElementById("name").setAttribute("value",TA);
+      });
+  
+      var OHTable = document.getElementsByClassName("unclaimed");
+      var OHText = document.getElementById("OHText");
+      var OHInput = document.getElementById("OH");
+      for(var time of OHTable){
+        time.onclick = function(){
+          var newValue = OHInput.value;
+          if(this.getAttribute("class")==="unclaimed") {
+            this.setAttribute("class", "claimed");
+  
+            if(newValue.length>0) newValue += "; ";
+            newValue += this.id;
+  
+            var selectedTime = document.createElement("p");
+            selectedTime.id = this.id;
+            selectedTime.innerHTML = this.id;
+            OHText.appendChild(selectedTime);
+          }
+          else {
+            this.setAttribute("class", "unclaimed");
+            for(child of OHText.children){
+              if(child.id===this.id) OHText.removeChild(child);
+            }
+  
+            newValue = newValue.replace(this.id, "");
+            
+            if(newValue.includes("; ;")) newValue = newValue.replace("; ; ", "; ");
+            if(newValue.startsWith("; ")) newValue = newValue.replace("; ", "");
+            if(newValue.endsWith("; ")) newValue = newValue.replace("; ", "");
+          }
+          OHInput.setAttribute("value", newValue);
+        }
+      }
+  
+      function showSchedule(){
+        document.getElementById("schedule").setAttribute("style","display:block");
+  
+        try{
+          var asyncReq = new XMLHttpRequest();
+          asyncReq.addEventListener("readystatechange", function(){
+            if(asyncReq.readyState==4 && asyncReq.status==200){
+              var text = this.responseText;
+              var entries = new Array();
+              var entry = "";
+              for(var i=0; i<text.length; i++){
+                if(text[i]==="\n") {
+                  entries.push(entry);
+                  entry="";
+                }
+                else entry+=text[i];
+              }
+              entries.push(entry);
+              for(var i=1; i<entries.length; i++){
+                var data = entries[i].split(',');
+                var OH = data[6].replace(/\"/g,"");
+                var times = OH.split("; ");
+                for(time of times){
+                  var node = document.getElementById(time);
+                  node.setAttribute("class","claimed");
+                  node.innerHTML = data[2]+"<br>"+data[5];
+                }
+              }
+            }
+          });
+          asyncReq.open("GET", "databases/OHR.csv", true);
+          asyncReq.send();
+        } catch (exception) {
+          alert("Request failed.");
+        }
+      }
+    </script>

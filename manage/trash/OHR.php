@@ -84,8 +84,8 @@
       </table>
       <p>&nbsp;</p>
       <form action="writeOHR.php" id="form" style="display:none" method="post">
-        <input type="hidden" value="<?php echo $_GET["Course"]?>" name="Course"></input>
-        <input type="hidden" value="<?php echo $_GET["Term"]?>" name="Term"></input>
+        <input type="hidden" value="COURSE" name="Course"></input>
+        <input type="hidden" value="TERM" name="Term"></input>
         <input type="hidden" id="name" name="Name"></input>
         Time: <p id="OHText"></p><input type="hidden" id="OH" name="Hours"></input><br>
         Preferred email:<input type="email" placeholder="@mcgill.ca or @mail.mcgill.ca" name="Email"><br>
