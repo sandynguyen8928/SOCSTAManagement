@@ -76,7 +76,7 @@ body {
   flex-direction: column;
 }
 
-.TAadminTitle{
+/* .TAadminTitle{
   margin-top: auto; 
   align-self: flex-end left; 
   font-size: 40px; 
@@ -97,6 +97,43 @@ a.TAadminTitle {
 .TAadminTitle:hover {
   opacity:0;
   transition: 0.3s ease;
+} */
+
+ /* IMPORT/ADD */
+.courseFunctionImportAdd{
+  padding: 20px;
+  width:334px;
+  height:200px;
+  background-color: #C4C4C4;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.courseFunctionImportAdd a{
+  text-decoration: none;
+  order: 1;
+  opacity:1;
+  transition: 0.3s ease;
+}
+.courseFunctionImportAdd:hover a:hover{
+  opacity:0.5;
+  transition: 0.3s ease;
+}
+
+.importAddTitle{
+  margin-top: auto; 
+  align-self: flex-end left; 
+  font-size: 40px; 
+  font-weight: bold;
+  order: 2;
+  transition: 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.importAddTitle:visited {
+  color: black;
 }
 
 .optionTitle {
