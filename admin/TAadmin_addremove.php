@@ -40,7 +40,7 @@
   </div>
 
 
-<!-- TA Admin History -->
+<!-- TA Admin Add Remove -->
 
 <div class="allPages">
 
