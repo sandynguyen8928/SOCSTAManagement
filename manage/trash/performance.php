@@ -43,6 +43,8 @@
       Select a TA: <select id="TA">
         <option></option>
         <?php
+        
+        // file needs to be changed later, should loop through TA database and select the TAs for this course
           $file = fopen("performance.csv", "r") or die("Unable to open file");
           $rows = array();
           while(!feof($file)){
@@ -51,10 +53,11 @@
           
           $TAs = array();
           foreach($rows as $entry){
-            $name = $entry[2];
+            $name = $entry[3];
             if($entry[0]===$_GET["Term"] && $entry[1]===$_GET["Course"] && !in_array($name, $TAs)) {
-              array_push($TAs, $entry[2]);
-              echo "<option>".$entry[2]."</option>";
+              array_push($TAs, $entry[3]);
+
+              echo "<option>".$entry[3]."</option>";
             }
           }
           echo "</select>";
@@ -69,6 +72,7 @@
       <form action="writePerformance.php" id="form" style="display:none" method="post">
         <input type="hidden" value="<?php echo $_GET["Course"]?>" name="Course"></input>
         <input type="hidden" value="<?php echo $_GET["Term"]?>" name="Term"></input>
+        <input type="hidden" value="<?php echo $_GET["Prof"]?>" name="Prof"></input>
         <input type="hidden" id="name" name="TA"></input>
         <textarea id="textbox" name="Comment"></textarea>
         <input type="submit" value="Submit"></input>

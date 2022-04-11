@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-
-<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +20,7 @@
     </div>
 
     <div class="navItem" id="manage">
-      <p><a href="../manage/index.html" class="navtitle">Manage TA</a></p>
+      <p><a href="../manage/TAManage.php?Page=Home&Course=COMP+307&Term=Fall+September+2021&Prof=Joseph+Vybihal" class="navtitle">Manage TA</a></p>
     </div>
 
     <div class="navItem" id="admin">
@@ -38,30 +35,4 @@
       <p class="navtitle">Logout</p>
     </div>
   </div>
-
-<div class="allPages">
-    <h2 class="optionTitle">Select a TA:</h2>
-
-    <form action="showTAInfo.php" method="post">
-
-        <select name="myTA" id="myTA" value="myTA">
-          <?php
-          $myfile = fopen("database/TADatabase.csv", "r");
-
-          $array = array();
-
-          if ($myfile) {
-            while (($line = fgets($myfile)) !== false) {
-              $param = explode(",", $line);
-              $array[] = $param[1];
-            }
-          }
-          foreach($array as $name) {
-            echo "<option>".$name."</option>";
-          }
-          ?>
-        </select>
-
-    <input type="submit" value="Submit" class="submitButton">
-    </form>
-</div>
+  
