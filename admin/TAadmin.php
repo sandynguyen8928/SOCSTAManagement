@@ -25,7 +25,7 @@
             } else if ($_GET["Page"]=="TAadmin_history") {
 
                 // INFO PAGE
-                display("matter/TAadmin_history.html");
+                display("TAadmin_history.php");
                 } else if ($_GET["Page"]=="TAadmin_add") {
 
                     // INFO PAGE
