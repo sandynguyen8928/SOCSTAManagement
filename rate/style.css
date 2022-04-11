@@ -12,11 +12,16 @@
   width: 100%;
   height: 175px;
   background-color: #a49ca4;
-  color: #f6f6ee;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 60px;
 }
+
+.header a{
+  text-decoration: none;
+  color: #f6f6ee;
+}
+
 .subtitle {
   color: white;
   font-weight: bolder;
