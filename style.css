@@ -74,15 +74,14 @@ body {
 .message1{
   width: 100%;
   align-items: center;
-  text-align: center;
+  text-align: left;
   justify-content: center;
-  padding: 10px;
-  line-height: 20px;
+  line-height: 60px;
 }
 
 .message1 a{
-  text-decoration: none;
   color: black;
+  font-weight: bold;
 }
 
 .message2{
@@ -94,12 +93,18 @@ body {
 }
 
 .loginContainer{
-  width: 100%;
-  padding-left: 30%;
-  padding-right: 30%;;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
   align-items: center;
   text-align: left;
   justify-content: center;
+  background: #C4C4C4;
+  border-radius: 20px;
+  height: 300px;
 }
 
 .loginBox{
@@ -107,12 +112,10 @@ body {
   align-items: center;
   text-align: left;
   justify-content: center;
-  background-color: #C4C4C4;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 5px;
   margin-top: 2px;
   margin-bottom: 5px;
-
 }
 
 .loginButton{
@@ -123,6 +126,14 @@ body {
   text-decoration: none;
   padding: 10px;
   color: black;
+}
+
+.loginText{
+  line-height: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-weight: bold;
+  font-size: larger;
 }
 
 /* COURSE/FUNCTIONS */ 
