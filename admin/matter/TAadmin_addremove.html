@@ -1,0 +1,42 @@
+<!-- TA Admin History
+
+<div class="allPages">
+
+    <form action="TAadmin_addremove.php" method="post">
+
+    <h2 class="optionTitle">What do you want to do?</h2>
+
+    <div class="courseFunctionContainer">
+
+        <div class="courseFunction">
+            <label for="add_TA" class="TAadminTitle">Add a TA</label>
+            <input type="radio" id="add_TA" value="add_TA" name="addremove">
+
+        </div>
+        <div class="courseFunction">
+            <label for="remove_TA" class="TAadminTitle">Remove a TA</label>
+            <input type="radio" id="remove_TA" value="remove_TA" name="addremove">
+        </div>
+    </div>
+
+    <select name="myTA" id="myTA" value="myTA">
+          <?php
+          $myfile = fopen("database/TADatabase.csv", "r");
+
+          $array = array();
+
+          if ($myfile) {
+            while (($line = fgets($myfile)) !== false) {
+              $param = explode(",", $line);
+              $array[] = $param[1];
+            }
+          }
+          foreach($array as $name) {
+            echo "<option>".$name."</option>";
+          }
+          ?>
+        </select>
+
+    <input type="submit" value="Submit" class="submitButton">
+    </form>
+</div> -->

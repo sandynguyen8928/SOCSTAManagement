@@ -47,9 +47,9 @@
         <select name="myTA" id="myTA" value="myTA">
           <?php
 
-            $import = $_POST["history"];
+            $history = $_POST["history"];
 
-            if ($import == "TA_history") {
+            if ($history == "TA_history") {
                 $myfile = fopen("database/TADatabase.csv", "r");
             }
             else {

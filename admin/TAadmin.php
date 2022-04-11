@@ -26,7 +26,11 @@
 
                 // INFO PAGE
                 display("matter/TAadmin_history.html");
-                } else {
+                } else if ($_GET["Page"]=="TAadmin_addremove") {
+
+                    // INFO PAGE
+                    display("TAadmin_addremove.php");
+                    } else {
     
 
             // ERROR PAGE

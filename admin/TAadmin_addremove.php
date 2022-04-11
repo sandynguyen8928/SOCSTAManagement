@@ -39,12 +39,31 @@
     </div>
   </div>
 
+
+<!-- TA Admin History -->
+
 <div class="allPages">
-    <h2 class="optionTitle">Select a TA:</h2>
 
-    <form action="showTAInfo.php" method="post">
+    <form action="addRemoveTA.php" method="post">
 
-        <select name="myTA" id="myTA" value="myTA">
+    <h2 class="optionTitle">What do you want to do?</h2>
+
+    <div class="courseFunctionContainer">
+
+        <div class="courseFunction">
+            <label for="add_TA" class="TAadminTitle">Add a TA</label>
+            <input type="radio" id="add_TA" value="add_TA" name="addremove">
+
+        </div>
+        <div class="courseFunction">
+            <label for="remove_TA" class="TAadminTitle">Remove a TA</label>
+            <input type="radio" id="remove_TA" value="remove_TA" name="addremove">
+        </div>
+</div>
+
+<div class="courseFunctionContainer">
+<div class="courseFunction">
+    <select name="myTA" id="myTA" value="myTA">
           <?php
           $myfile = fopen("database/TADatabase.csv", "r");
 
@@ -61,6 +80,28 @@
           }
           ?>
         </select>
+        </div>
+
+        <div class="courseFunction">
+    <select name="myCourse" id="myCourse" value="myCourse">
+        <?php
+        $myfile = fopen("database/CourseDatabase.csv", "r");
+
+        $array = array();
+
+        if ($myfile) {
+        while (($line = fgets($myfile)) !== false) {
+            $param = explode(",", $line);
+            $array[] = $param[1];
+        }
+        }
+        foreach($array as $name) {
+        echo "<option>".$name."</option>";
+        }
+        ?>
+    </select>
+    </div>
+    </div>
 
     <input type="submit" value="Submit" class="submitButton">
     </form>
