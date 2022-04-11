@@ -85,6 +85,14 @@ body {
   color: black;
 }
 
+.message2{
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding-top: 30px;
+}
+
 .loginContainer{
   width: 100%;
   padding-left: 30%;
