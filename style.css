@@ -76,7 +76,7 @@ body {
   align-items: center;
   text-align: left;
   justify-content: center;
-  line-height: 60px;
+  padding-top: 25px;
 }
 
 .message1 a{
