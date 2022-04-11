@@ -41,14 +41,12 @@
 
     <?php
 
-        $myWritefileTA = fopen('database/TADatabase.csv', 'a');
-        $myWritefileCourse = fopen('database/CourseDatabase.csv', 'a');
-
         $import = $_POST["import"];
         $myReadfile = fopen($import, 'r') or die('Unable to open file!');
 
         if ($myReadfile) {
             if ($import == "database/TACohort.csv") {
+              $myWritefileTA = fopen('database/TADatabase.csv', 'w');
                 while (($line = fgets($myReadfile)) !== false) {
                     $param = explode(",", $line);
 
@@ -68,7 +66,22 @@
                 }
             }
             else {
+              $myWritefileCourse = fopen('database/CourseDatabase.csv', 'w');
+              $line = fgets($myReadfile);
+              $str = $line.",Num_TA";
+              fwrite($myWritefileCourse, $str);
+
+              while (($line = fgets($myReadfile)) !== false) {
+
+                $param = explode(",", $line);
+
+                $numTA = ceil($param[5] / $param[6]);
+
+                $str = $line.",".$numTA;
+
+                fwrite($myWritefileCourse, $str);
             }
+          }
         }
     ?>
 
