@@ -21,7 +21,6 @@
     text-decoration: none;
     color: #f6f6ee;
   }
-  
   .subtitle {
     color: white;
     font-weight: bolder;
@@ -67,26 +66,25 @@
     width: 100%;
   /*   padding-left: 50px;
     padding-right: 50px; */
-    display: flex;
+    display:flex;
     align-items: center;
     text-align: center;
     justify-content: center;
     padding-top: 100px;
-    padding-bottom: 10px;
+    padding-bottom: 1%;
   }
   
   .message1{
     width: 100%;
     align-items: center;
-    text-align: center;
+    text-align: left;
     justify-content: center;
-    padding: 10px;
-    line-height: 20px;
+    padding-top: 25px;
   }
   
   .message1 a{
-    text-decoration: none;
     color: black;
+    font-weight: bold;
   }
   
   .message2{
@@ -97,12 +95,16 @@
   }
   
   .loginContainer{
-    width: 100%;
-    padding-left: 30%;
-    padding-right: 30%;;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 3%;
     align-items: center;
     text-align: left;
     justify-content: center;
+    background: #C4C4C4;
+    border-radius: 20px;
+    height: 100%;
   }
   
   .loginBox{
@@ -110,12 +112,11 @@
     align-items: center;
     text-align: left;
     justify-content: center;
-    background-color: #C4C4C4;
-    border-radius: 20px;
+    border-radius: 7px;
     padding: 5px;
     margin-top: 2px;
     margin-bottom: 5px;
-  
+    border: 0;
   }
   
   .loginButton{
@@ -126,6 +127,12 @@
     text-decoration: none;
     padding: 10px;
     color: black;
+  }
+  
+  .loginText{
+    padding-bottom: 5%;
+    font-weight: bold;
+    font-size: larger;
   }
   
   /* COURSE/FUNCTIONS */ 
