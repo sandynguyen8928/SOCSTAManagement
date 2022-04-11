@@ -67,6 +67,54 @@ body {
   align-items: center;
   text-align: center;
   justify-content: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.message1{
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  line-height: 20px;
+}
+
+.message1 a{
+  text-decoration: none;
+  color: black;
+}
+
+.loginContainer{
+  width: 100%;
+  padding-left: 30%;
+  padding-right: 30%;;
+  align-items: center;
+  text-align: left;
+  justify-content: center;
+}
+
+.loginBox{
+  width: 100%;
+  align-items: center;
+  text-align: left;
+  justify-content: center;
+  background-color: #C4C4C4;
+  border-radius: 20px;
+  padding: 5px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+
+}
+
+.loginButton{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  text-decoration: none;
+  padding: 10px;
+  color: black;
 }
 
 /* COURSE/FUNCTIONS */ 
