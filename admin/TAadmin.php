@@ -22,7 +22,11 @@
 
             // INFO PAGE
             display("TAadmin_info.php");
-            } else {
+            } else if ($_GET["Page"]=="TAadmin_history") {
+
+                // INFO PAGE
+                display("matter/TAadmin_history.html");
+                } else {
     
 
             // ERROR PAGE
