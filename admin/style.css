@@ -76,7 +76,29 @@ body {
   flex-direction: column;
 }
 
-.TAadminTitle{
+ /* IMPORT/ADD */
+.courseFunctionImportAdd{
+  padding: 20px;
+  width:334px;
+  height:200px;
+  background-color: #C4C4C4;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.courseFunctionImportAdd a{
+  text-decoration: none;
+  order: 1;
+  opacity:1;
+  transition: 0.3s ease;
+}
+.courseFunctionImportAdd:hover a:hover{
+  opacity:0.5;
+  transition: 0.3s ease;
+}
+
+.importAddTitle{
   margin-top: auto; 
   align-self: flex-end left; 
   font-size: 40px; 
@@ -87,16 +109,8 @@ body {
   text-decoration: none;
 }
 
-a.TAadminTitle:visited {
+a.importAddTitle:visited {
   color: black;
-}
-a.TAadminTitle {
-  color: black;
-}
-
-.TAadminTitle:hover {
-  opacity:0;
-  transition: 0.3s ease;
 }
 
 .optionTitle {
@@ -113,6 +127,9 @@ a.TAadminTitle {
   color: #f6f6ee;
   font-weight: bold;
   cursor: pointer;
+  display: block;
+  margin:0 auto;
+  margin-top: 30px;
 }
 
 .infoDisplay {
