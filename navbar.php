@@ -1,6 +1,5 @@
 <?php 
     if($_SESSION["username"] == null){
-      error_reporting(0);
         echo "<div class='nav'>
                     <div class='navItem'>
                     </div>

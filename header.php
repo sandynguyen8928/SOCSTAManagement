@@ -16,6 +16,9 @@
 </div>
 
 <?php 
+    // suppress warnings 
+    error_reporting(0);
+    
     // include navbar.php
     include 'navbar.php';
 ?>
