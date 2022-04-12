@@ -151,18 +151,6 @@ label.importAddTitle:focus {
 input.radioButton {
   visibility: hidden;
 }
-input.importAddTitle:checked + label {
-  color:red;
+input.importAddTitle:focus + label.importAddTitle:focus {
+  background-color:red;
 }
-
-/* .radioButton {
-  -webkit-appearance: none;
--moz-appearance: none;
--ms-appearance: none;
--o-appearance: none;
-appearance: none;
-}
-
-.radioButton:checked {
-  
-} */
