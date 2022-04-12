@@ -1,12 +1,13 @@
 <?php
-  $term = $_POST["Term"];
-  $course = $_POST["Course"];
-  $prof = $_POST["Prof"];
-  $name = $_POST["Name"];
+  $term = $_GET["Term"];
+  $course = $_GET["Course"];
+  $prof = $_GET["Prof"];
+  $name = $_GET["Name"];
    
   $content = "term_month_year,course_num,TA_name,assigned_responsibility,student_rating_avg,performance_comments,student_comments";
 
-  $TACourseHistory = fopen("../admin/database/TACourseHistory.csv", "w") or die("Unable to open file");
+  // echo "<p>".$term."</p>";
+  // $TACourseHistory = fopen("../admin/database/TACourseHistory.csv", "w") or die("Unable to open file");
 // loop through to populate first three columns (term, course, name)
   // while(!feof($TACourseHistory)) {
   //   $line = fgetcsv($TACourseHistory);
@@ -21,12 +22,12 @@
 
 // loop through student ratings to get student comments, delimited by ;
 
-  fclose($file);
-  fclose($TACourseHistory);
+  // fclose($file);
+  // fclose($TACourseHistory);
 
-  $file = fopen("databases/report.csv", "w") or die("Unable to open file");
-  fwrite($file, $content);
-  fclose($file); 
+  // $file = fopen("databases/report.csv", "w") or die("Unable to open file");
+  // fwrite($file, $content);
+  // fclose($file); 
 
-  header("Location: TAManage.php?Page=TAManage-report&Course=".$course."&Term=".$term."&Prof=".$prof."&Name=".$name);
+  header("Location: TAManage.php?Page=TAManage-report&Course=$course&Term=$term&Prof=$prof&Name=$name");
 ?>

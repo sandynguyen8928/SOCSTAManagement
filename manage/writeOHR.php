@@ -5,5 +5,5 @@
   fwrite($file, $comment);
   fclose($file); 
 
-  header("Location: TAManage.php?Page=Submitted");
+  header("Location: TAManage.php?Page=TAManage-submitted");
 ?>
