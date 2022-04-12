@@ -19,7 +19,7 @@
     </div>
 
     <div class="loginContainer">
-        <p class="loginText">Login</p>
+        <p class="loginText">Sign-in</p>
         <form method="POST">
             <label for="username">Username</label> 
             <input type="text" name="username" class="loginBox">

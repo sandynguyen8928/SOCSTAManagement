@@ -132,7 +132,7 @@ body {
 .courseFunctionImportAdd a{
   text-decoration: none;
   order: 1;
-  opacity:0.5;
+  opacity: 1;
   transition: 0.3s ease;
 }
 .courseFunctionImportAdd:hover a:hover{
@@ -153,6 +153,7 @@ body {
   transition: 0.3s ease;
   cursor: pointer;
   text-decoration: none;
+  color: black;
 }
 
 p.importAddTitle:visited {

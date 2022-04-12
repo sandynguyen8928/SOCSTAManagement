@@ -1,29 +1,47 @@
 <?php 
     include '../header.php';
+
+    // ----------------- MAIN PROGRAM --------------------------------
+
+        // --------- ROUTING WEBPAGE BODY -----------
+        if (sizeof($_GET)==0 || $_GET["Page"]=="home") {
+            // HOME PAGE
+            display("matter/home.html");
+        } 
+        else if ($_GET["Page"]=="addUser") {
+            // MANAGE USER - add user
+            display("matter/addUser.html");
+        } 
+        else if ($_GET["Page"]=="deleteUser") {
+            // MANAGER USER - delete user
+            display("matter/deleteUser.html");
+        } 
+        else if ($_GET["Page"]=="editUser") {
+            // MANAGE USER - edit user
+            display("matter/editUser.html");
+        } 
+        else if ($_GET["Page"]=="importProfCour") {
+            // INFO PAGE
+            display("matter/importProfCour.html");
+        } 
+        else if ($_GET["Page"]=="addProfCour") {
+            // INFO PAGE
+            display("matter/addProfCour.html");
+        } 
+        else {
+            // ERROR PAGE
+            echo "404: Invalid Page!";
+        }
+        
+    // END MAIN
+
+    // Function: Prints a file into the packet positionally dependent
+    function display($path) {
+        $file = fopen($path,"r");
+        while(!feof($file)) {
+        $line = fgets($file);
+        echo $line;
+        }
+        fclose($file);
+        }
 ?>
-
-<!----------------- BODY ----------------->
-<div class="body">
-    <div class="courseFunctionContainer">
-      <!-- Function: Manage Users / Management of User Accounts -->
-      <div class="courseFunction">
-        <p>Manage Users</p>
-        <a href="editUser.html">Edit a User</a>
-        <a href="deleteUser.html">Delete a User</a>
-        <a href="addUser.html">Add a User</a>
-      </div>
-
-      <!-- Function: Import Prof + course / Quick import of profs and courses from a CSV file -->
-      <div class="courseFunctionImportAdd">
-          <p class="importAddTitle" href="">Import Professors & Courses</p>
-      </div>
-
-      <!-- Function: Manual add prof + course / manual way to input professors and courses (instead of CSV file) -->
-      <div class="courseFunctionImportAdd">
-        <p class="importAddTitle" href="">Add a Professor & Course</p>
-      </div>
-    </div>
-  </div>
-</body>
-
-</html>
