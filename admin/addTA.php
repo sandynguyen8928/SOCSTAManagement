@@ -8,8 +8,12 @@
 
     <form action="addTA.php" method="post">
 
-<div class="courseFunctionContainer">
-<div class="courseFunction">
+<table>
+  <tr>
+    <td>
+<h4>TA:</h4>
+</td>
+<td>
     <select name="myTA" id="myTA" value="myTA">
           <?php
           $myfile = fopen("database/TADatabase.csv", "r");
@@ -27,7 +31,12 @@
           }
           ?>
         </select>
-        
+        </td>
+        </tr>
+        <td>
+        <h4>Course:</h4>
+        </td>
+        <td>
     <select name="myCourse" id="myCourse" value="myCourse">
         <?php
         $myfile = fopen("database/CourseDatabase.csv", "r");
@@ -45,14 +54,23 @@
         }
         ?>
     </select>
-
+      </td>
+      </tr>
+      <tr>
+        <td>
+    <h4>Term:</h4>
+      </td>
+      <td>
     <select name="myTerm" id="myTerm" value="myTerm">
     <option>Term</option>
         <option>Fall September</option>
         <option>Winter January</option>
         <option>Summer May</option>
     </select>
-
+      </tr>
+      <tr><td>
+    <h4>Year:</h4>
+      </td><td>
     <select name="myYear" id="myYear" value="myYear">
     <option>Year</option>
         <option>2010</option>
@@ -78,6 +96,11 @@
         <option>2030</option>
 
     </select>
+      </td>
+      </tr>
+      <tr><td>
+    <h4>Day:</h4>
+      </td><td>
     <select name="myDay" id="myDay" value="myDay">
         <option>Day</option>
         <option>Monday</option>
@@ -86,6 +109,10 @@
         <option>Thursday</option>
         <option>Friday</option>
     </select>
+      </td></tr>
+      <tr><td>
+    <h4>Time:</h4>
+      </td><td>
     <select name="myTime" id="myTime" value="myTime">
         <option>Time</option>
         <option>8:00AM</option>
@@ -115,8 +142,7 @@
         <option>8:00PM</option>
         <option>8:30PM</option>
     </select>
-    </div>
-    </div>
+      </td></tr></table>
 
     <input type="submit" value="Submit" class="submitButton">
     </form>
