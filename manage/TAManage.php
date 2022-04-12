@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+<?php 
+    include '../header.php';
+?>
 
+<!DOCTYPE html>
 <html>
     <body>
         <?php
         //
         // ----------------- MAIN PROGRAM --------------------------------
         //
-            // --------- COMMON WEBPAGE TOP ---------
-            display("matter/header.html");
-
             // --------- ROUTING WEBPAGE BODY -----------
             if (sizeof($_GET)==0 || $_GET["Page"]=="Home") {
 
