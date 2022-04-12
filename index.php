@@ -12,7 +12,7 @@
 
 <!-- if logged in, display welcome page -->
     <!----------------- BODY ----------------->
-  <div class="body">
+  <div class="welcomeBody">
     <div class="message">
         <div>
           <h1>Welcome!</h1> 

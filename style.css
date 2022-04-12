@@ -61,17 +61,19 @@ body {
   padding: 50px;
 }
 
+.welcomeBody {
+  padding: 150px;
+}
+
 /* DASHBOARD */
 .message{
   width: 100%;
-/*   padding-left: 50px;
-  padding-right: 50px; */
   display:flex;
   align-items: center;
   text-align: center;
   justify-content: center;
   padding-top: 25px;
-  padding-bottom: 25px;
+  padding-bottom: 10px;
 }
 
 .message1{
@@ -92,7 +94,6 @@ body {
   align-items: center;
   text-align: center;
   justify-content: center;
-  padding-top: 30px;
 }
 
 .loginContainer{
