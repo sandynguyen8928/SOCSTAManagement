@@ -121,6 +121,10 @@ a.importAddTitle:link {
   color: black;
 }
 
+label.importAddTitle:focus {
+  color:red;
+}
+
 .optionTitle {
   text-align: center;
   padding-bottom: 50px;
@@ -143,3 +147,22 @@ a.importAddTitle:link {
 .infoDisplay {
   padding: 10px 0px 10px 0px;
 }
+
+input.radioButton {
+  visibility: hidden;
+}
+input.importAddTitle:checked + label {
+  color:red;
+}
+
+/* .radioButton {
+  -webkit-appearance: none;
+-moz-appearance: none;
+-ms-appearance: none;
+-o-appearance: none;
+appearance: none;
+}
+
+.radioButton:checked {
+  
+} */
