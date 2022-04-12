@@ -117,6 +117,9 @@ body {
 a.importAddTitle:visited {
   color: black;
 }
+a.importAddTitle:link {
+  color: black;
+}
 
 .optionTitle {
   text-align: center;
