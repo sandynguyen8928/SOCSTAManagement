@@ -17,7 +17,7 @@
         <label for="email">E-mail</label> <br>
         <input type="text" name="email" class="loginBox"><br>
 
-        <label for="student_ID">Student ID Number</label> <br>
+        <label for="student_ID">Student ID Number (If applicable)</label> 
         <input type="text" name="student_ID" class="loginBox"><br>
 
         <label for="username">Username</label> <br>
@@ -48,7 +48,6 @@
             var courses_registered_in = document.forms["registerForm"]["courses_registered_in"].value;
             if (legal_name == null || legal_name == "", 
                 email == null || email == "", 
-                student_ID == null || student_ID == "", 
                 username == null ||  username == "", 
                 password == null ||  password == "",
                 courses_registered_in == null ||  courses_registered_in == "") {
