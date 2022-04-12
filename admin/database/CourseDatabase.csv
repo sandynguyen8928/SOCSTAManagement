@@ -1,3 +1,3 @@
-Term_month_year,Course_num,Course_type,Course_name,Instructor_name,Course_enrollment_num,TA_quota
-,Num_TAFall September 2021,COMP 307,Science,Principles of Web Development,Joseph Vyhibal,90,30
-,3Winter January 2022,COMP 303,Science,Software Design,Jin Guo,250,30,9
+Term_month_year,Course_num,Course_type,Course_name,Instructor_name,Course_enrollment_num,TA_quota,Num_TA
+Fall September 2021,COMP 307,Science,Principles of Web Development,Joseph Vyhibal,90,30,3
+Winter January 2022,COMP 303,Science,Software Design,Jin Guo,250,30,9

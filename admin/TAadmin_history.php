@@ -17,7 +17,6 @@
             <select id="myTA" value="myTA" name="option[]">
           <?php
 
-            // $history = $_POST["history"];
             $myfile = fopen("database/TADatabase.csv", "r");
 
             $array = array();
@@ -42,7 +41,6 @@
             <select id="myCourse" value="myCourse" name="option[]">
           <?php
 
-            // $history = $_POST["history"];
             $myfile = fopen("database/CourseDatabase.csv", "r");
 
             $array = array();
@@ -59,6 +57,11 @@
           ?>
         </select>
         </div>
+
+        <div class="courseFunction">
+            <label for="allTA_history" class="importAddTitle">All TAs</label>
+            <input type="radio" id="allTA_history" value="allTA_history" name="history">
+          </div>
     </div>
 
     <input type="submit" value="Submit" class="submitButton">

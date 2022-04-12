@@ -68,7 +68,9 @@
         <option>Summer May</option>
     </select>
       </tr>
+      <tr><td>
     <h4>Year:</h4>
+      </td><td>
     <select name="myYear" id="myYear" value="myYear">
     <option>Year</option>
         <option>2010</option>
@@ -94,7 +96,11 @@
         <option>2030</option>
 
     </select>
+      </td>
+      </tr>
+      <tr><td>
     <h4>Day:</h4>
+      </td><td>
     <select name="myDay" id="myDay" value="myDay">
         <option>Day</option>
         <option>Monday</option>
@@ -103,7 +109,10 @@
         <option>Thursday</option>
         <option>Friday</option>
     </select>
+      </td></tr>
+      <tr><td>
     <h4>Time:</h4>
+      </td><td>
     <select name="myTime" id="myTime" value="myTime">
         <option>Time</option>
         <option>8:00AM</option>
@@ -133,6 +142,7 @@
         <option>8:00PM</option>
         <option>8:30PM</option>
     </select>
+      </td></tr></table>
 
     <input type="submit" value="Submit" class="submitButton">
     </form>

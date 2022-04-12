@@ -3,18 +3,26 @@
 ?>
 
 <div class="allPages">
+<table>
     
 <?php
 $history = $_POST["history"];
 $option = $_POST["option"];
 $myOption = "";
-$myfile = fopen("database/TACourseHistory.csv", "r");
+$myReadfile = fopen("database/TACourseHistory.csv", "r") or die("Unable to open file");
 
-while (($line = fgets($myfile)) !== false) {
+while (($line = fgets($myReadfile)) !== false) {
         echo "<tr>";
+
         $param = explode(",", $line);
 
-        if ($history == "Course_history") {
+        if ($history == "allTA_history") {
+            foreach ($param as $cell) {
+                echo "<td>" . htmlspecialchars($cell) . "</td>";
+            }
+        }
+
+        else if ($history == "Course_history") {
 
             $myOption = $option[1];
 
@@ -24,7 +32,7 @@ while (($line = fgets($myfile)) !== false) {
             }
             echo "</tr>\n";
         }
-        else {
+        else if ($history == "TA_history"){
             $myOption = $option[0];
             if ($param[3] == $myOption)
             foreach ($param as $cell) {
@@ -33,7 +41,13 @@ while (($line = fgets($myfile)) !== false) {
             echo "</tr>\n";
         }
 }
-fclose($myfile);
+
+if (!empty($array)) {
+    foreach ($array as $TA) {
+        echo $TA;
+    }
+}
+fclose($myReadfile);
 echo "\n</table></body></html>";
 ?>
 
