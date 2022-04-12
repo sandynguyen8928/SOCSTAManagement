@@ -14,10 +14,10 @@
 
                 // HOME PAGE
                 display("matter/TAManage_home.html");
-            } else if($_GET["Page"]=="Submitted"){
+            } else if($_GET["Page"]=="TAManage-submitted"){
                 
                 // INFO PAGE
-                echo "<div class=\"message\">Submitted!</div>";
+                display("matter/TAManage_submitted.html");
             } else if ($_GET["Page"]=="TAManage-OHR") {
 
                 // INFO PAGE
@@ -33,7 +33,7 @@
             } else if ($_GET["Page"]=="TAManage-report") {
 
                 // INFO PAGE
-                display("matter/TAadmin_report.html");
+                display("matter/TAManage_report.html");
             } else {
     
 
@@ -53,10 +53,12 @@
                 $line = str_replace("COURSE", $_GET["Course"], $line);
                 $line = str_replace("TERM", $_GET["Term"], $line);
                 $line = str_replace("PROF", $_GET["Prof"], $line);
+                $line = str_replace("POSITION", $_GET["Position"], $line);
                 echo $line;
             }
+            
             fclose($file);
-            }
-            ?>
+        }
+        ?>
     </body>
 </html>

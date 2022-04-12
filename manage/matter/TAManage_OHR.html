@@ -45,13 +45,16 @@
     </div>
   
     <script>
-          window.onload = function() {
+      // load TAs in dropdown
+      window.onload = function() {
       
       try{
         var asyncReq = new XMLHttpRequest();
         asyncReq.addEventListener("readystatechange", function(){
           if(asyncReq.readyState==4 && asyncReq.status==200){
             var text = this.responseText;
+
+            // get entries
             var entries = new Array();
             var entry = "";
             for(var i=0; i<text.length; i++){
@@ -62,6 +65,8 @@
               else entry+=text[i];
             }
             entries.push(entry);
+
+            // parse csv & add to selection
             var names = new Array();
             var select = document.getElementById("TA");
             for(var i=1; i<entries.length; i++){
@@ -87,6 +92,7 @@
       }
     };
 
+    // show form after selection
       var selection = document.getElementById("TA");
       selection.addEventListener("change", function(){
         var TA = selection.options[selection.selectedIndex].text;
@@ -95,31 +101,37 @@
         document.getElementById("name").setAttribute("value",TA);
       });
   
+      // changes colour of hours on table on click
       var OHTable = document.getElementsByClassName("unclaimed");
       var OHText = document.getElementById("OHText");
       var OHInput = document.getElementById("OH");
       for(var time of OHTable){
         time.onclick = function(){
           var newValue = OHInput.value;
+          // if the time slot is not claimed yet
           if(this.getAttribute("class")==="unclaimed") {
             this.setAttribute("class", "claimed");
   
+            // update "hours" value in form
             if(newValue.length>0) newValue += "; ";
             newValue += this.id;
   
+            // update "Time: " under schedule
             var selectedTime = document.createElement("p");
             selectedTime.id = this.id;
             selectedTime.innerHTML = this.id;
             OHText.appendChild(selectedTime);
           }
+          // if the time slot has been claimed, change to
           else {
             this.setAttribute("class", "unclaimed");
+            // delete from "Time: " under schedule
             for(child of OHText.children){
               if(child.id===this.id) OHText.removeChild(child);
             }
   
+            // delete value from "hours" in form
             newValue = newValue.replace(this.id, "");
-            
             if(newValue.includes("; ;")) newValue = newValue.replace("; ; ", "; ");
             if(newValue.startsWith("; ")) newValue = newValue.replace("; ", "");
             if(newValue.endsWith("; ")) newValue = newValue.replace("; ", "");
@@ -131,11 +143,14 @@
       function showSchedule(){
         document.getElementById("schedule").setAttribute("style","display:block");
   
+        // populate schedule with claimed hours
         try{
           var asyncReq = new XMLHttpRequest();
           asyncReq.addEventListener("readystatechange", function(){
             if(asyncReq.readyState==4 && asyncReq.status==200){
               var text = this.responseText;
+
+              // get entries
               var entries = new Array();
               var entry = "";
               for(var i=0; i<text.length; i++){
@@ -146,6 +161,8 @@
                 else entry+=text[i];
               }
               entries.push(entry);
+
+              // parse csv
               for(var i=1; i<entries.length; i++){
                 var data = entries[i].split(',');
                 var OH = data[6].replace(/\"/g,"");
