@@ -9,7 +9,7 @@
   $name = $_POST["myTA"];
   
   // Open all files needed
-  $myfile1 = fopen("../database/TADatabase.csv", "r");
+  $myfile1 = fopen("../databases/TADatabase.csv", "r");
   $myfile2 = fopen("../databases/report.csv", "r");
   $myfile3 = fopen("../databases/wishlist.csv", "r");
   $myfile4 = fopen("../databases/performance.csv", "r");

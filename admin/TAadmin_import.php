@@ -11,13 +11,13 @@
     <div class="courseFunctionContainer">
 
         <div class="courseFunction">
-            <label for="../database/TACohort.csv" class="importAddTitle">TA Cohort</label>
-            <input type="radio" id="../database/TACohort.csv" value="../database/TACohort.csv" name="import" class="radioButton">
+            <label for="../databases/TACohort.csv" class="importAddTitle">TA Cohort</label>
+            <input type="radio" id="../databases/TACohort.csv" value="../databases/TACohort.csv" name="import" class="radioButton">
 
         </div>
         <div class="courseFunction">
-            <label for="../database/CourseQuota.csv" class="importAddTitle">Course Quota</label>
-            <input type="radio" id="../database/CourseQuota.csv" value="../database/CourseQuota.csv" name="import">
+            <label for="../databases/CourseQuota.csv" class="importAddTitle">Course Quota</label>
+            <input type="radio" id="../databases/CourseQuota.csv" value="../databases/CourseQuota.csv" name="import">
         </div>
     </div>
 

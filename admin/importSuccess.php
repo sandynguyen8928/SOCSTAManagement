@@ -37,8 +37,8 @@
     if ($myReadfile) {
 
         // If import TA Cohort
-        if ($import == "../database/TACohort.csv") {
-          $myWritefileTA = fopen('../database/TADatabase.csv', 'w');
+        if ($import == "../databases/TACohort.csv") {
+          $myWritefileTA = fopen('../databases/TADatabase.csv', 'w');
             while (($line = fgets($myReadfile)) !== false) {
                 $param = explode(",", $line);
 
@@ -60,7 +60,7 @@
 
         // If import Course Quota
         else {
-            $myWritefileCourse = fopen('../database/CourseDatabase.csv', 'w');
+            $myWritefileCourse = fopen('../databases/CourseDatabase.csv', 'w');
             $line = fgets($myReadfile);
             $str = $line.",Num_TA";
             fwrite($myWritefileCourse, $str);

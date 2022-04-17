@@ -15,7 +15,7 @@
       <tr><td><h4>TA:</h4></td>
       <td><select name="myTA" id="myTA" value="myTA">
         <?php
-        $myfile = fopen("../database/TADatabase.csv", "r");
+        $myfile = fopen("../databases/TADatabase.csv", "r");
 
         $array = array();
 
@@ -35,7 +35,7 @@
       <td><h4>Course:</h4></td>
       <td><select name="myCourse" id="myCourse" value="myCourse">
         <?php
-        $myfile = fopen("../database/CourseDatabase.csv", "r");
+        $myfile = fopen("../databases/CourseDatabase.csv", "r");
 
         $array = array();
 
@@ -97,7 +97,7 @@
     $TA = $_POST["myTA"];
     $term = $_POST["myTerm"];
     $year = $_POST["myYear"];
-    $myfile = fopen("../database/TACourseHistory.csv", "r");
+    $myfile = fopen("../databases/TACourseHistory.csv", "r");
     $array = array();
 
     $present = 0;
@@ -110,9 +110,9 @@
         if ($param[1] == $course && $param[3] == $TA && $param[0] == "$term $year" ) {
 
           // Replace line with empty
-          $contents = file_get_contents("../database/TACourseHistory.csv");
+          $contents = file_get_contents("../databases/TACourseHistory.csv");
           $contents = str_replace("\n".$line,'',$contents);
-          file_put_contents("../database/TACourseHistory.csv", $contents);
+          file_put_contents("../databases/TACourseHistory.csv", $contents);
           $present = 1;
           echo "<h2 class=optionTitle>";
           echo $TA;

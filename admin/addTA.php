@@ -131,9 +131,9 @@
   $TAid="";
   $addline="";
 
-  $myReadFileCourse=fopen("../database/CourseDatabase.csv", "r");
-  $myReadFileTA=fopen("../database/TADatabase.csv", "r");
-  $myWriteFile=fopen("../database/TACourseHistory.csv", "a");
+  $myReadFileCourse=fopen("../databases/CourseDatabase.csv", "r");
+  $myReadFileTA=fopen("../databases/TADatabase.csv", "r");
+  $myWriteFile=fopen("../databases/TACourseHistory.csv", "a");
 
   // Find the Course
   if ($myReadFileCourse) {
