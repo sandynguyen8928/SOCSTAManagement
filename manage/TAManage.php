@@ -50,6 +50,7 @@
             $file = fopen($path,"r");
             while(!feof($file)) {
                 $line = fgets($file);
+                $line = str_replace("USERNAME", $_SESSION["username"], $line);
                 $line = str_replace("COURSE", $_GET["Course"], $line);
                 $line = str_replace("TERM", $_GET["Term"], $line);
                 $line = str_replace("PROF", $_GET["Prof"], $line);

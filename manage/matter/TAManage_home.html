@@ -1,36 +1,106 @@
     <!----------------- BODY ----------------->
     <div class="body">
       <div class="courseFunctionContainer">
-        <div class="courseFunction">
-          <p class="term">Fall January 2021</p>
-          <p class="course">COMP307</p>
-          <a href="TAManage_report.php?Course=COMP+307&Term=Fall+September+2021&Prof=Joseph+Vybihal">All TAs Report</a>
-          <a href="TAManage.php?Page=TAManage-wishlist&Course=COMP+307&Term=Fall+September+2021&Prof=Joseph+Vybihal">TA Wish-List</a>
-          <a href="TAManage.php?Page=TAManage-performance&Course=COMP+307&Term=Fall+September+2021&Prof=Joseph+Vybihal">TA Performance Log</a>
-          <a href="TAManage.php?Page=TAManage-OHR&Course=COMP+307&Term=Fall+September+2021&Prof=Joseph+Vybihal">Office Hours and Responsibilities</a>
-        </div>
 
-        <div class="courseFunction">
-          <p class="term">Winter January 2022</p>
-          <p class="course">COMP303</p>
-          <a href="TAManage.php?Page=TAManage-report&Course=COMP+303&Term=Winter+January_2022&Prof=Jin+Guo">All TAs Report</a>
-          <a href="TAManage.php?Page=TAManage-wishlist&Course=COMP+303&Term=Winter+January_2022&Prof=Jin+Guo">TA Wish-List</a>
-          <a href="TAManage.php?Page=TAManage-performance&Course=COMP+303&Term=Winter+January_2022&Prof=Jin+Guo">TA Performance Log</a>
-          <a href="TAManage.php?Page=TAManage-OHR&Course=COMP+303&Term=Winter+January_2022&Prof=Jin+Guo">Office Hours and Responsibilities</a>
-        </div>
       </div>
     </div>
 
-    <!-- <script>
+    <script>
      
       
 
       window.onload = function(){
-        var position = "POSITION";
-        var name = "NAME";
+        var userData = new Array();
+        // async call to userInfo.csv
+        try{
+          var asyncReq = new XMLHttpRequest();
+          asyncReq.addEventListener("readystatechange", function(){
+            if(asyncReq.readyState==4 && asyncReq.status==200){
+              var text = this.responseText;
+              
+              // parse csv file
+              var entries = parseCSV(text);
+              
+              // parse entries until username matches
+              for(var entry of entries){
+                var data = entry.split(',');
+                if(data[3]=="USERNAME") {
+                  userData = data;
+                  break;
+                }
+              }
+              
+// AHHHHHHHHH FIGURE OUT HOW TO GET POSITION (TA, PROF) && TERM FOR EACH COURSE
 
-        if(position==="Prof")
 
-         gonna make this an ajax call that loops through this TA/prof's courses and creates a new div for each course they're teaching
+              // get courses from that user data
+              var courses = userData[5].split(';');
+              for(var course of courses){
+                populateCourseDiv(course);
+              }
+            }
+            
+          });
+          asyncReq.open("GET", "../../userInfo.csv", true);
+          asyncReq.send();
+        } catch (exception) {
+          alert("Request failed.");
+        }
       }
-    </script> -->
+
+
+      
+
+      function populateCourseDiv(course){
+        var courseDiv = document.createElement("div");
+
+        // term
+        var term = document.createElement("p");
+        term.setAttribute("class", "term");
+        term.innerHTML = "Winter January 2022";
+        courseDiv.appendChild(term);
+        
+        // course name
+        var courseName = document.createElement("p");
+        courseName.setAttribute("class", "course");
+        courseName.innerHTML = course;
+        courseDiv.appendChild(courseName);
+
+        // create report link
+        createLink("TAManage-report",course,"Winter+January_2022","Jin+Guo","All TAs Report", courseDiv);
+        // create wishlist link
+        createLink("TAManage-wishlist", course, "Winter+January_2022","Jin+Guo","TA Wish-List", courseDiv);
+        // create performance link
+        createLink("TAManage-performance", course, "Winter+January_2022","Jin+Guo","TA Performance Log", courseDiv);
+        // create ohr link
+        createLink("TAManage-OHR", course, "Winter+January_2022","Jin+Guo","Office Hours and Responsibilities", courseDiv);
+
+        courseDiv.setAttribute("class", "courseFunction");
+        var container = document.getElementsByClassName("courseFunctionContainer")[0];
+        container.appendChild(courseDiv);
+      }
+
+      function createLink(page, course, term, prof, innerHTML, courseDiv){
+        // var courseDiv = document.createElement("div");
+        var link = document.createElement("a");
+        // FIGURE OUT HOW TO ADD TERM & PROF NAME
+        var href = "TAManage.php?Page="+page+"&Course="+course+"&Term="+term+"&Prof="+prof;
+        link.setAttribute("href", href);
+        link.innerHTML = innerHTML;
+        courseDiv.appendChild(link);
+      }
+
+      function parseCSV(text){
+        var entries = new Array();
+        var entry = "";
+        for(var i=0; i<text.length; i++){
+          if(text[i]==="\n") {
+            entries.push(entry);
+            entry="";
+          }
+          else entry+=text[i];
+        }
+        entries.push(entry);
+        return entries;
+      }
+    </script>
