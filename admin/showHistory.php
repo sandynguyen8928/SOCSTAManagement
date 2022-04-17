@@ -11,7 +11,7 @@
         $history = $_POST["history"];
         $option = $_POST["option"];
         $myOption = "";
-        $myReadfile = fopen("../database/TACourseHistory.csv", "r") or die("Unable to open file");
+        $myReadfile = fopen("../databases/TACourseHistory.csv", "r") or die("Unable to open file");
 
         // Loop through each line
         while (($line = fgets($myReadfile)) !== false) {
