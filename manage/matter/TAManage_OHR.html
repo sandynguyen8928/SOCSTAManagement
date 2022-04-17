@@ -66,7 +66,7 @@
             }
             entries.push(entry);
 
-            // parse csv & add to selection
+            // parse csv
             var names = new Array();
             var select = document.getElementById("TA");
             for(var i=1; i<entries.length; i++){
@@ -74,6 +74,7 @@
               var term = data[0];
               var course = data[1];
               var name = data[3];
+              // if course & term matches, add to selection dropdown
               if(course==="COURSE" && term==="TERM" && !names.includes(name)){
                 
                 names.push(name);
@@ -166,11 +167,15 @@
               for(var i=1; i<entries.length; i++){
                 var data = entries[i].split(',');
                 var OH = data[6].replace(/\"/g,"");
+                var course = data[1];
+                var term = data[0];
                 var times = OH.split("; ");
-                for(time of times){
-                  var node = document.getElementById(time);
-                  node.setAttribute("class","claimed");
-                  node.innerHTML = data[2]+"<br>"+data[5];
+                if(course==="COURSE" && term==="TERM"){
+                  for(time of times){
+                    var node = document.getElementById(time);
+                    node.setAttribute("class","claimed");
+                    node.innerHTML = data[2]+"<br>"+data[5];
+                  }
                 }
               }
             }
