@@ -11,7 +11,7 @@
   );
 
   
-  $TACourseHistory = fopen("../admin/database/TACourseHistory.csv", "r") or die("Unable to open file");
+  $TACourseHistory = fopen("../databases/TACourseHistory.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgets($TACourseHistory);
   // loop through to populate first three columns (term, course, name)
@@ -29,7 +29,7 @@
 
 
 // loop through OHR.csv to populate assigned responsibilities, delimited by ;
-  $OHR = fopen("databases/OHR.csv", "r") or die("Unable to open file");
+  $OHR = fopen("../databases/OHR.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($OHR);
   while(!feof($OHR)) {
@@ -58,7 +58,7 @@
 
 
 // loop through student ratings to get avg for each TA
-  $rate = fopen("databases/studentRating_STUB.csv", "r") or die("Unable to open file");
+  $rate = fopen("../databases/studentRating_STUB.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($rate);
   while(!feof($rate)) {
@@ -83,7 +83,7 @@
   fclose($rate);
 
 // loop through performance.csv to populate performance log comments, delimited by ;
-  $performance = fopen("databases/performance.csv", "r") or die("Unable to open file");
+  $performance = fopen("../databases/performance.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($performance);
   while(!feof($performance)) {
@@ -108,7 +108,7 @@
   fclose($performance);
 
 // loop through student ratings to get student comments, delimited by ;
-  $performance = fopen("databases/studentRating_STUB.csv", "r") or die("Unable to open file");
+  $performance = fopen("../databases/studentRating_STUB.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($performance);
   while(!feof($performance)) {
@@ -179,7 +179,7 @@
   }
 
   // write to report.csv
-  $file = fopen("databases/report.csv", "w") or die("Unable to open file");
+  $file = fopen("../databases/report.csv", "w") or die("Unable to open file");
   foreach($entries as &$row){
     foreach($row as $data) fwrite($file, $data);
   }

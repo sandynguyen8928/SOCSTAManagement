@@ -86,7 +86,7 @@
           }
           
         });
-        asyncReq.open("GET", "../admin/database/TACourseHistory.csv", true);
+        asyncReq.open("GET", "../databases/TACourseHistory.csv", true);
         asyncReq.send();
       } catch (exception) {
         alert("Request failed.");
@@ -180,7 +180,7 @@
               }
             }
           });
-          asyncReq.open("GET", "databases/OHR.csv", true);
+          asyncReq.open("GET", "../databases/OHR.csv", true);
           asyncReq.send();
         } catch (exception) {
           alert("Request failed.");
