@@ -11,7 +11,10 @@
     $myfile1 = fopen("database/TADatabase.csv", "r");
     $myfile2 = fopen("../manage/databases/report.csv", "r");
     $myfile3 = fopen("../manage/databases/wishlist.csv", "r");
+    $myfile4 = fopen("../manage/databases/performance.csv", "r");
     $array = array();
+    $studentComment = "";
+    $perf = array();
 
     if ($myfile1) {
         $present=0;
@@ -33,23 +36,34 @@
         while (($line = fgets($myfile2)) !== false) {
           $param = explode(",", $line);
           if ($param[2] == $name) {
+            if ($param[4] != "NA") {
               $array[] = $param[4];
-              $array[] = $param[5];
-              $array[] = $param[6];
-              $present=1;
-              break;
+              $present = 1;
+            }
+            if ($param[6] != "NA"){
+              $studentComment .= $param[6];
+            }
           }
         }
         if ($present == 0) {
-            $array[] = " ";
+          $array[] = " ";
+        }
+      }
+
+      if ($myfile4) {
+        while (($line = fgets($myfile4)) !== false) {
+          $param = explode(",", $line);
+          if ($param[3] == $name) {
+              $perf[] = "$param[2]: $param[4]";
           }
+        }
       }
 
       if ($myfile3) {
         $present=0;
         while (($line = fgets($myfile3)) !== false) {
           $param = explode(",", $line);
-          if ($param[3] == $name) {
+          if (trim($param[3]) == $name) {
               $array[] = $param[2];
               $present=1;
               break;
@@ -59,13 +73,18 @@
             $array[] = " ";
           }
       }
-
     ?>
-
-    <h2><?php echo $name; ?></h2>
-    <p class="infoDisplay">TA Cohort: <?php echo $array[0]; ?></p>
-    <p class="infoDisplay">Student Rating Average: <?php echo $array[1]; ?></p>
-    <p class="infoDisplay">Professor Perfomance Log: <?php echo $array[2]; ?></p>
-    <p class="infoDisplay">Student Rating Comment: <?php echo $array[3]; ?></p>
+    <h2 class="titleFeature"><?php echo $name; ?></h2>
+    <table class="tableInfo">
+    <tr><td>TA Cohort:</td><td><?php echo $array[0]; ?></td></tr>
+    <tr><td>Student Rating Average:</td><td><?php echo $array[1]; ?></td></tr>
+    <tr><td>Professor Perfomance Log:</td><td><?php 
+    foreach($perf as $lol){
+      echo $lol;
+      echo "<br>";
+      } ?></td></tr>
+    <tr><td>Student Rating Comment:</td><td><?php echo $studentComment ?></td></tr>
+    <tr><td>Professor Wish List Membership:</td><td><?php echo $array[2]; ?></td></tr>
+    </table>
 
 </div>

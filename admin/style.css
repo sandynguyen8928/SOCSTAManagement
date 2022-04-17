@@ -169,3 +169,33 @@ th, td{
   width: 16.5%;
   text-align: center;
 }
+.titleFeature {
+  text-align: center;
+  padding: 10px;
+}
+
+.tableInfo {
+  width:60%;
+}
+
+.tableInfo td:first-child {
+  background-color: #a49ca4;
+  font-weight: bold;
+}
+
+.tableInfo td:nth-child(2) {
+  text-align: left;
+}
+
+.tableHistory tr:first-child {
+  background-color: #a49ca4;
+  font-weight: bold;
+}
+
+.tableAddRemove {
+  width:30%;
+}
+.tableAddRemove td:first-child {
+  background-color: #a49ca4;
+  font-weight: bold;
+}

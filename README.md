@@ -23,3 +23,7 @@ performance.csv --> list of all professors' performance log comments
 wishlist.csv --> list of all professors' TA requests for next semester
 
 OHR.csv --> list of all TAs' office hours and responsibilities
+
+userinfo.csv --> list of all user account information 
+
+profAndCour --> list of all professors and their courses

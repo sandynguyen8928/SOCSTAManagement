@@ -6,15 +6,15 @@
         // --------- ROUTING WEBPAGE BODY -----------
         if (sizeof($_GET)==0 || $_GET["Page"]=="home") {
             // HOME PAGE
-            display("matter/home.html");
+            display("home.html");
         } 
         else if ($_GET["Page"]=="addUser") {
-            // MANAGE USER - add user
-            display("matter/addUser.html");
+            // MANAGE USER - add user  
+            display("addUser.php"); 
         } 
         else if ($_GET["Page"]=="deleteUser") {
-            // MANAGER USER - delete user
-            display("matter/deleteUser.html");
+            // MANAGE USER - delete user
+            header('Location: deleteUser.php');
         } 
         else if ($_GET["Page"]=="editUser") {
             // MANAGE USER - edit user
@@ -22,11 +22,11 @@
         } 
         else if ($_GET["Page"]=="importProfCour") {
             // INFO PAGE
-            display("matter/importProfCour.html");
+            display("importProfCour.php");
         } 
         else if ($_GET["Page"]=="addProfCour") {
             // INFO PAGE
-            display("matter/addProfCour.html");
+            display("addProfCour.php");
         } 
         else {
             // ERROR PAGE
@@ -39,9 +39,9 @@
     function display($path) {
         $file = fopen($path,"r");
         while(!feof($file)) {
-        $line = fgets($file);
-        echo $line;
+            $line = fgets($file);
+            echo $line;
         }
         fclose($file);
-        }
+    }
 ?>

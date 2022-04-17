@@ -8,7 +8,7 @@
 
     <form action="addTA.php" method="post">
 
-<table>
+<table class="tableAddRemove">
   <tr>
     <td>
 <h4>TA:</h4>

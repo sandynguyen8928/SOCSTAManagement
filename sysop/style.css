@@ -62,6 +62,80 @@ body {
   padding: 50px;
 }
 
+/* DASHBOARD */
+.message{
+  width: 100%;
+  display:flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+
+.message1{
+  width: 100%;
+  align-items: center;
+  text-align: left;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+.message1 a{
+  color: black;
+  font-weight: bold;
+}
+
+.message2{
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.loginContainer{
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 3%;
+  align-items: center;
+  text-align: left;
+  justify-content: center;
+  background: #C4C4C4;
+  border-radius: 20px;
+  height: 100%;
+}
+
+.loginBox{
+  width: 100%;
+  align-items: center;
+  text-align: left;
+  justify-content: center;
+  border-radius: 7px;
+  padding: 5px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  border: 0;
+}
+
+.loginButton{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+  border: 0;
+  border-radius: 25px;
+}
+
+.loginText{
+  padding-bottom: 5%;
+  font-weight: bold;
+  font-size: larger;
+}
+
 /* COURSE/FUNCTIONS */ 
 .courseFunctionContainer{
   display: flex;
