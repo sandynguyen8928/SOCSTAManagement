@@ -150,7 +150,7 @@ table {
   margin-right:auto;
 }
 
-tr{
+/* tr{
   background: rgba(164,156,164,0.1);
 }
 td.unclaimed:hover{
@@ -158,8 +158,8 @@ td.unclaimed:hover{
 }
 td.claimed{
   background: rgba(164,156,164,0.5);
-}
-th, td{
+} */
+.tableInfo th, td{
   border: 1px solid #4A524A;
   padding: 5px;
   width: 16.5%;
@@ -186,6 +186,18 @@ th, td{
 .tableHistory tr:first-child {
   background-color: #a49ca4;
   font-weight: bold;
+}
+.tableAddRemove th, td{
+  border: 1px solid #4A524A;
+  padding: 5px;
+  width: 16.5%;
+  text-align: center;
+}
+.tableHistory th, td{
+  border: 1px solid #4A524A;
+  padding: 5px;
+  width: 16.5%;
+  text-align: center;
 }
 
 .tableAddRemove {

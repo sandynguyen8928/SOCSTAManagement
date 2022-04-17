@@ -12,7 +12,7 @@
     <form action="showTAInfo.php" method="post" class="optionTitle">
       <select name="myTA" id="myTA" value="myTA" class="dropdown">
         <?php
-        $myfile = fopen("database/TADatabase.csv", "r");
+        $myfile = fopen("../database/TADatabase.csv", "r");
         $array = array();
 
         if ($myfile) {

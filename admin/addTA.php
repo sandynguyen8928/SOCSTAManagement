@@ -15,7 +15,7 @@
   <tr><td><h4>TA:</h4></td>
   <td><select name="myTA" id="myTA" value="myTA">
     <?php
-    $myfile = fopen("database/TADatabase.csv", "r");
+    $myfile = fopen("../database/TADatabase.csv", "r");
 
     $array = array();
 
@@ -35,7 +35,7 @@
   <td><h4>Course:</h4></td>
   <td><select name="myCourse" id="myCourse" value="myCourse">
     <?php
-    $myfile = fopen("database/CourseDatabase.csv", "r");
+    $myfile = fopen("../database/CourseDatabase.csv", "r");
 
     $array = array();
 
@@ -131,9 +131,9 @@
   $TAid="";
   $addline="";
 
-  $myReadFileCourse=fopen("database/CourseDatabase.csv", "r");
-  $myReadFileTA=fopen("database/TADatabase.csv", "r");
-  $myWriteFile=fopen("database/TACourseHistory.csv", "a");
+  $myReadFileCourse=fopen("../database/CourseDatabase.csv", "r");
+  $myReadFileTA=fopen("../database/TADatabase.csv", "r");
+  $myWriteFile=fopen("../database/TACourseHistory.csv", "a");
 
   // Find the Course
   if ($myReadFileCourse) {

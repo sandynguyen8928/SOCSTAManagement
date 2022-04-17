@@ -22,7 +22,7 @@
           <!-- Display all TA options from TADatabase.csv -->
           <?php
 
-          $myfile = fopen("database/TADatabase.csv", "r");
+          $myfile = fopen("../database/TADatabase.csv", "r");
 
           $array = array();
 
@@ -46,7 +46,7 @@
         <select id="myCourse" value="myCourse" name="option[]">
           <!-- Display all Course options from CourseDatabase.csv -->
           <?php
-          $myfile = fopen("database/CourseDatabase.csv", "r");
+          $myfile = fopen("../database/CourseDatabase.csv", "r");
           $array = array();
 
           if ($myfile) {
