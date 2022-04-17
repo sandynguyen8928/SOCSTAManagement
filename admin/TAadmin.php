@@ -14,7 +14,7 @@
             if (sizeof($_GET)==0 || $_GET["Page"]=="Home") {
 
             // HOME PAGE
-            display("matter/TAadmin_home.html");
+            display("TAadmin_home.php");
             } else if ($_GET["Page"]=="TAadmin_import") {
 
             // INFO PAGE

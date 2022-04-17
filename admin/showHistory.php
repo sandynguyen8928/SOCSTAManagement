@@ -3,7 +3,7 @@
 ?>
 
 <div class="allPages">
-<table>
+<table class="tableHistory">
     
 <?php
 $history = $_POST["history"];
