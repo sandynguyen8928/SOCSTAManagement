@@ -2,53 +2,55 @@
     include '../header.php';
 ?>
 
+<!-- Show History from TAadmin_history.php Form -->
 <div class="allPages">
-<table class="tableHistory">
-    
-<?php
-$history = $_POST["history"];
-$option = $_POST["option"];
-$myOption = "";
-$myReadfile = fopen("database/TACourseHistory.csv", "r") or die("Unable to open file");
+    <table class="tableHistory">
+    <?php
 
-while (($line = fgets($myReadfile)) !== false) {
-        echo "<tr>";
+        // Retrieve data from form
+        $history = $_POST["history"];
+        $option = $_POST["option"];
+        $myOption = "";
+        $myReadfile = fopen("database/TACourseHistory.csv", "r") or die("Unable to open file");
 
-        $param = explode(",", $line);
+        // Loop through each line
+        while (($line = fgets($myReadfile)) !== false) {
+                echo "<tr>";
 
-        if ($history == "allTA_history") {
-            foreach ($param as $cell) {
-                echo "<td>" . htmlspecialchars($cell) . "</td>";
-            }
+                $param = explode(",", $line);
+
+                // If want to see all TA History
+                if ($history == "allTA_history") {
+                    foreach ($param as $cell) {
+                        echo "<td>" . htmlspecialchars($cell) . "</td>";
+                    }
+                }
+
+                // If want to see a course's history
+                else if ($history == "Course_history") {
+
+                    $myOption = $option[1];
+
+                    if ($param[1] == $myOption)
+                    foreach ($param as $cell) {
+                        echo "<td>" . htmlspecialchars($cell) . "</td>";
+                    }
+                    echo "</tr>\n";
+                }
+
+                // If want to see a TA's history
+                else if ($history == "TA_history"){
+                    $myOption = $option[0];
+                    //echo "<h2 class='titleFeature'>$myOption</h2>";
+                    if ($param[3] == $myOption)
+                    foreach ($param as $cell) {
+                        echo "<td>" . htmlspecialchars($cell) . "</td>";
+                    }
+                    echo "</tr>\n";
+                }
         }
-
-        else if ($history == "Course_history") {
-
-            $myOption = $option[1];
-
-            if ($param[1] == $myOption)
-            foreach ($param as $cell) {
-                echo "<td>" . htmlspecialchars($cell) . "</td>";
-            }
-            echo "</tr>\n";
-        }
-        else if ($history == "TA_history"){
-            $myOption = $option[0];
-            if ($param[3] == $myOption)
-            foreach ($param as $cell) {
-                echo "<td>" . htmlspecialchars($cell) . "</td>";
-            }
-            echo "</tr>\n";
-        }
-}
-
-if (!empty($array)) {
-    foreach ($array as $TA) {
-        echo $TA;
-    }
-}
-fclose($myReadfile);
-echo "\n</table></body></html>";
-?>
+        fclose($myReadfile);
+        echo "\n</table></body></html>";
+    ?>
 
 </div>

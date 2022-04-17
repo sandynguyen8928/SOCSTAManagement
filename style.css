@@ -183,3 +183,122 @@ body {
   opacity:1;
   transition: 0.3s ease;
 }
+
+/* ADMIN CSS */
+.allPages {
+  padding: 50px;
+}
+
+.courseFunctionImportAdd{
+  padding: 20px;
+  width:334px;
+  height:200px;
+  background-color: #C4C4C4;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.courseFunctionImportAdd a{
+  text-decoration: none;
+  order: 1;
+  opacity:1;
+  transition: 0.3s ease;
+}
+.courseFunctionImportAdd:hover a:hover{
+  opacity:0.5;
+  transition: 0.3s ease;
+}
+
+.importAddTitle{
+  margin-top: auto; 
+  align-self: flex-end left; 
+  font-size: 40px; 
+  font-weight: bold;
+  order: 2;
+  transition: 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.importAddTitle:visited {
+  color: black;
+}
+a.importAddTitle:link {
+  color: black;
+}
+
+.optionTitle {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.submitButton {
+  padding: 15px;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background-color: #4a524a;
+  color: #f6f6ee;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin:0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.infoDisplay {
+  padding: 10px 0px 10px 0px;
+}
+
+table {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+tr{
+  background: rgba(164,156,164,0.1);
+}
+td.unclaimed:hover{
+  background: rgba(164,156,164,0.5);
+}
+td.claimed{
+  background: rgba(164,156,164,0.5);
+}
+th, td{
+  border: 1px solid #4A524A;
+  padding: 5px;
+  width: 16.5%;
+  text-align: center;
+}
+.titleFeature {
+  text-align: center;
+  padding: 10px;
+}
+
+.tableInfo {
+  width:60%;
+}
+
+.tableInfo td:first-child {
+  background-color: #a49ca4;
+  font-weight: bold;
+}
+
+.tableInfo td:nth-child(2) {
+  text-align: left;
+}
+
+.tableHistory tr:first-child {
+  background-color: #a49ca4;
+  font-weight: bold;
+}
+
+.tableAddRemove {
+  width:30%;
+}
+.tableAddRemove td:first-child {
+  background-color: #a49ca4;
+  font-weight: bold;
+}
