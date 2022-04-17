@@ -17,23 +17,23 @@
             display("TAadmin_home.php");
             } else if ($_GET["Page"]=="TAadmin_import") {
 
-            // INFO PAGE
-            display("matter/TAadmin_import.html");
+            // IMPORT PAGE
+            display("TAadmin_import.php");
             } else if ($_GET["Page"]=="TAadmin_info") {
 
             // INFO PAGE
             display("TAadmin_info.php");
             } else if ($_GET["Page"]=="TAadmin_history") {
 
-            // INFO PAGE
+            // HISTORY PAGE
             display("TAadmin_history.php");
             } else if ($_GET["Page"]=="TAadmin_add") {
 
-            // INFO PAGE
+            // ADD PAGE
             display("TAadmin_add.php");
             } else if ($_GET["Page"]=="TAadmin_remove") {
 
-            // INFO PAGE
+            // REMOVE PAGE
             display("TAadmin_remove.php");
             } else {
     
