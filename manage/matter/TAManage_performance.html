@@ -60,7 +60,7 @@
               var data = entries[i].split(',');
               var term = data[0];
               var course = data[1];
-              var prof = data[2];
+              
               var name = data[3];
               if(course==="COURSE" && term==="TERM" && !names.includes(name)){
                 
@@ -73,7 +73,7 @@
           }
           
         });
-        asyncReq.open("GET", "databases/performance.csv", true);
+        asyncReq.open("GET", "../admin/database/TACourseHistory.csv", true);
         asyncReq.send();
       } catch (exception) {
         alert("Request failed.");
