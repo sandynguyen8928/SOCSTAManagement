@@ -14,7 +14,6 @@
         } 
         else if ($_GET["Page"]=="deleteUser") {
             // MANAGE USER - delete user
-            // display("deleteUser.php");
             header('Location: deleteUser.php');
         } 
         else if ($_GET["Page"]=="editUser") {
@@ -23,11 +22,11 @@
         } 
         else if ($_GET["Page"]=="importProfCour") {
             // INFO PAGE
-            display("matter/importProfCour.html");
+            display("importProfCour.php");
         } 
         else if ($_GET["Page"]=="addProfCour") {
             // INFO PAGE
-            display("matter/addProfCour.html");
+            display("addProfCour.php");
         } 
         else {
             // ERROR PAGE

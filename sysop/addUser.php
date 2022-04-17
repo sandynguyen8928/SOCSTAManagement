@@ -62,7 +62,7 @@
                 username == null ||  username == "", 
                 password == null ||  password == "",
                 courses_registered_in == null ||  courses_registered_in == "") {
-                    alert("Please Fill All Required Field");
+                    alert("Please Fill All Required Fields");
                     return false;
             }
         }   
