@@ -67,7 +67,7 @@
     if(isset($_POST["registerButton"])){
         // Writes in file
         $myfile = fopen("userinfo.csv", "a") or die("Unable to open file!");
-        $string = $_POST["legal_name"].", ".$_POST["email"].", ".$_POST["student_ID"].", ".$_POST["username"].", ".$_POST["password"].", [".$_POST["courses_registered_in"]."]"."\n"; 
+        $string = $_POST["legal_name"].",".$_POST["email"].",".$_POST["student_ID"].",".$_POST["username"].",".$_POST["password"].",[".$_POST["courses_registered_in"]."]"; 
         fwrite($myfile, $string);
         fclose($myfile); 
 

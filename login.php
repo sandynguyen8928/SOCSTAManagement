@@ -4,7 +4,8 @@
 ?>
 <?php
     error_reporting(0);
-    // check if user is logged in function and redirect 
+    // check if user is logged in and redirect to dashboard
+    // else load page to login or register
     if ($_SESSION['username'] != null )  {
         header("Location:index.php");
     }
