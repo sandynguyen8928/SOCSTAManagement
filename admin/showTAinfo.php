@@ -49,7 +49,7 @@
         $present=0;
         while (($line = fgets($myfile3)) !== false) {
           $param = explode(",", $line);
-          if ($param[3] == $name) {
+          if (trim($param[3]) == $name) {
               $array[] = $param[2];
               $present=1;
               break;
@@ -59,13 +59,14 @@
             $array[] = " ";
           }
       }
-
     ?>
-
-    <h2><?php echo $name; ?></h2>
-    <p class="infoDisplay">TA Cohort: <?php echo $array[0]; ?></p>
-    <p class="infoDisplay">Student Rating Average: <?php echo $array[1]; ?></p>
-    <p class="infoDisplay">Professor Perfomance Log: <?php echo $array[2]; ?></p>
-    <p class="infoDisplay">Student Rating Comment: <?php echo $array[3]; ?></p>
+    <h2 class="titleFeature"><?php echo $name; ?></h2>
+    <table class="tableInfo">
+    <tr><td>TA Cohort:</td><td><?php echo $array[0]; ?></td></tr>
+    <tr><td>Student Rating Average:</td><td><?php echo $array[1]; ?></td></tr>
+    <tr><td>Professor Perfomance Log:</td><td><?php echo $array[2]; ?></td></tr>
+    <tr><td>Student Rating Comment:</td><td><?php echo $array[3]; ?></td></tr>
+    <tr><td>Professor Wish List Membership:</td><td><?php echo $array[4]; ?></td></tr>
+    </table>
 
 </div>

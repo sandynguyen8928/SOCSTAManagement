@@ -67,24 +67,24 @@
         courseDiv.appendChild(courseName);
 
         // create report link
-        createLink("TAManage-report",course,"Winter+January_2022","Jin+Guo","All TAs Report", courseDiv);
+        createLink("TAManage_report.php","TAManage-report",course,"Winter+January+2022","Jin+Guo","All TAs Report", courseDiv);
         // create wishlist link
-        createLink("TAManage-wishlist", course, "Winter+January_2022","Jin+Guo","TA Wish-List", courseDiv);
+        createLink("TAManage.php","TAManage-wishlist", course, "Winter+January+2022","Jin+Guo","TA Wish-List", courseDiv);
         // create performance link
-        createLink("TAManage-performance", course, "Winter+January_2022","Jin+Guo","TA Performance Log", courseDiv);
+        createLink("TAManage.php","TAManage-performance", course, "Winter+January+2022","Jin+Guo","TA Performance Log", courseDiv);
         // create ohr link
-        createLink("TAManage-OHR", course, "Winter+January_2022","Jin+Guo","Office Hours and Responsibilities", courseDiv);
+        createLink("TAManage.php","TAManage-OHR", course, "Winter+January+2022","Jin+Guo","Office Hours and Responsibilities", courseDiv);
 
         courseDiv.setAttribute("class", "courseFunction");
         var container = document.getElementsByClassName("courseFunctionContainer")[0];
         container.appendChild(courseDiv);
       }
 
-      function createLink(page, course, term, prof, innerHTML, courseDiv){
+      function createLink(program, page, course, term, prof, innerHTML, courseDiv){
         // var courseDiv = document.createElement("div");
         var link = document.createElement("a");
         // FIGURE OUT HOW TO ADD TERM & PROF NAME
-        var href = "TAManage.php?Page="+page+"&Course="+course+"&Term="+term+"&Prof="+prof;
+        var href = program+"?Page="+page+"&Course="+course+"&Term="+term+"&Prof="+prof;
         link.setAttribute("href", href);
         link.innerHTML = innerHTML;
         courseDiv.appendChild(link);

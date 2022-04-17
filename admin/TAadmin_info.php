@@ -2,12 +2,14 @@
     include '../header.php';
 ?>
 
+<!-- <script src="script.js"></script> -->
+
 <div class="allPages">
     <h2 class="optionTitle">Select a TA:</h2>
 
     <form action="showTAInfo.php" method="post" class="optionTitle">
 
-        <select name="myTA" id="myTA" value="myTA">
+        <select name="myTA" id="myTA" value="myTA" class="dropdown">
           <?php
           $myfile = fopen("database/TADatabase.csv", "r");
 
