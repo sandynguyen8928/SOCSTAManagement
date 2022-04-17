@@ -1,16 +1,6 @@
 # SOCSTAManagement
 
-term_month_year -> e.g., this semester would be filed under "Winter January 2022"
-
-course_num -> e.g., this course would be filed under "COMP 307"
-
 Database:
-
-TAs: Jennifer Lawrence, John Doe, Bob Smith and Jane Winston
-
-Professors: Joseph Vyhibal, Jin Guo
-
-Courses: COMP 307, COMP 303
 
 TACohort.csv and CourseQuota.csv --> CSV files from McGill
 
@@ -24,6 +14,10 @@ wishlist.csv --> list of all professors' TA requests for next semester
 
 OHR.csv --> list of all TAs' office hours and responsibilities
 
-userinfo.csv --> list of all user account information 
+userinfo.csv --> List of all user account information
 
-profAndCour --> list of all professors and their courses
+profAndCour.csv --> list of all professors and their courses
+
+Admin:
+
+Admin > Get a Course's TA History > 1. Check one of the boxes 2.Choose a TA/Courses (if necessary).
