@@ -57,7 +57,7 @@
         // term
         var term = document.createElement("p");
         term.setAttribute("class", "term");
-        term.innerHTML = "Winter January 2022";
+        term.innerHTML = "Fall September 2021";
         courseDiv.appendChild(term);
         
         // course name
@@ -67,13 +67,13 @@
         courseDiv.appendChild(courseName);
 
         // create report link
-        createLink("TAManage_report.php","TAManage-report",course,"Winter+January+2022","Jin+Guo","All TAs Report", courseDiv);
+        createLink("TAManage_report.php","TAManage-report",course,term.innerHTML,"Jin+Guo","All TAs Report", courseDiv);
         // create wishlist link
-        createLink("TAManage.php","TAManage-wishlist", course, "Winter+January+2022","Jin+Guo","TA Wish-List", courseDiv);
+        createLink("TAManage.php","TAManage-wishlist", course, term.innerHTML,"Jin+Guo","TA Wish-List", courseDiv);
         // create performance link
-        createLink("TAManage.php","TAManage-performance", course, "Winter+January+2022","Jin+Guo","TA Performance Log", courseDiv);
+        createLink("TAManage.php","TAManage-performance", course, term.innerHTML,"Jin+Guo","TA Performance Log", courseDiv);
         // create ohr link
-        createLink("TAManage.php","TAManage-OHR", course, "Winter+January+2022","Jin+Guo","Office Hours and Responsibilities", courseDiv);
+        createLink("TAManage.php","TAManage-OHR", course, term.innerHTML,"Jin+Guo","Office Hours and Responsibilities", courseDiv);
 
         courseDiv.setAttribute("class", "courseFunction");
         var container = document.getElementsByClassName("courseFunctionContainer")[0];

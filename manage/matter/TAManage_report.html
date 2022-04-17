@@ -48,9 +48,9 @@
             // parse csv & add to table
             var table = document.getElementById("report");
             for(var i=1; i<entries.length; i++){
-              // document.write("hello");
+              
               var data = entries[i].split(',');
-
+              
               var term = data[0];
               var course = data[1];
               var name = data[2];
@@ -58,7 +58,7 @@
               var student_rating_avg = data[4];
               var performance_comments = data[5].split(';');
               var student_comments = data[6].split(';');
-
+              
               var newRow = document.createElement("tr");
               
               // insert data to table

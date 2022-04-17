@@ -1,6 +1,4 @@
 <?php
-   
-  $content = "term_month_year,course_num,TA_name,assigned_responsibility,student_rating_avg,performance_comments,student_comments";
 
   $entries = array(
     array(
@@ -12,15 +10,20 @@
     )
   );
 
-  $TACourseHistory = fopen("databases/TACourseHistory.csv", "r") or die("Unable to open file");
+  
+  $TACourseHistory = fopen("../admin/database/TACourseHistory.csv", "r") or die("Unable to open file");
   // move pointer to after header row
-  fgetcsv($TACourseHistory);
+  fgets($TACourseHistory);
   // loop through to populate first three columns (term, course, name)
   while(!feof($TACourseHistory)) {
     $line = fgetcsv($TACourseHistory);
     $entry_key = "\n".$line[0].','.$line[1].','.$line[3].',';
     array_push($entries, array(
-      $entry_key));
+      ('entry_key') => $entry_key,
+      ('assigned_responsibility') => "",
+      ('student_rating_avg') => array(),
+      ('performance_comments') => array(),
+      ('student_comments') => array()));
   }
   fclose($TACourseHistory);
 
@@ -45,12 +48,14 @@
 
     // check for entry key equality in $entries; if match, then push to array
     foreach($entries as &$row){
-      if(strcmp($entry,$row[0])==0) {
-        array_push($row, $assigned_responsibilities);
+      if(strcmp($entry,$row["entry_key"])==0) {
+        $row['assigned_responsibility'] = $assigned_responsibilities;
       }
     }
   }
   fclose($OHR);
+
+
 
 // loop through student ratings to get avg for each TA
   $rate = fopen("databases/studentRating_STUB.csv", "r") or die("Unable to open file");
@@ -70,9 +75,8 @@
     
     // check for entry key equality in $entries; if match, then push to array
     foreach($entries as &$row){
-      if(strcmp($entry,$row[0])==0) {
-        if(sizeof($row)>2) array_push($row[2], $rating);
-        else array_push($row, array($rating));
+      if(strcmp($entry,$row['entry_key'])==0) {
+        array_push($row['student_rating_avg'], $rating);
       }
     }
   }
@@ -95,11 +99,11 @@
     
     // check for entry key equality in $entries; if match, then push to array
     foreach($entries as &$row){
-      if(strcmp($entry,$row[0])==0) {
-        if(sizeof($row)>3) array_push($row[3], $comment);
-        else array_push($row, array($comment));
+      if(strcmp($entry,$row['entry_key'])==0) {
+        array_push($row['performance_comments'], $comment);
       }
     }
+    
   }
   fclose($performance);
 
@@ -120,9 +124,8 @@
     
     // check for entry key equality in $entries; if match, then push to array
     foreach($entries as &$row){
-      if(strcmp($entry,$row[0])==0) {
-        if(sizeof($row)>4) array_push($row[4], $comment);
-        else array_push($row, array($comment));
+      if(strcmp($entry,$row['entry_key'])==0) {
+        array_push($row['student_comments'], $comment);
       }
     }
   }
@@ -132,10 +135,13 @@
   for($i=1; $i<count($entries); $i++) {
     $row = &$entries[$i];
 
+    $assigned_responsibilities = &$row['assigned_responsibility'];
+    if(strcmp($assigned_responsibilities,"")==0) $assigned_responsibilities = "NA,";
+
     // calculate student ratings
     // if not countable, that means there are no ratings to display
-    $student_ratings = &$row[2];
-    if(is_countable($student_ratings)) {
+    $student_ratings = &$row['student_rating_avg'];
+    if(sizeof($student_ratings)>0) {
       $sum = 0;
       $count = 0;
       foreach($student_ratings as $rating){
@@ -148,8 +154,8 @@
     
     // compile prof comments
     // if not countable, that means there are no comments to display
-    $prof_comments = &$row[3];
-    if(is_countable($prof_comments)) {
+    $prof_comments = &$row['performance_comments'];
+    if(sizeof($prof_comments)>0) {
       $field = "";
       foreach($prof_comments as $comment){
         $field=$field.$comment;
@@ -160,8 +166,8 @@
 
     // compile student comments
     // if not countable, that means there are no comments to display
-    $student_comments = &$row[4];
-    if(is_countable($student_comments)) {
+    $student_comments = &$row['student_comments'];
+    if(sizeof($student_comments)>0) {
       $field = "";
       foreach($student_comments as $comment){
         $field=$field.$comment;
@@ -174,7 +180,7 @@
 
   // write to report.csv
   $file = fopen("databases/report.csv", "w") or die("Unable to open file");
-  foreach($entries as $row){
+  foreach($entries as &$row){
     foreach($row as $data) fwrite($file, $data);
   }
   fclose($file); 
