@@ -64,8 +64,7 @@
             var course_num = document.forms["addProfCourForm"]["course_num"].value;
             var course_name = document.forms["addProfCourForm"]["course_name"].value;
             var instructor_assigned_name = document.forms["addProfCourForm"]["instructor_assigned_name"].value;
-            if (term_month_year == null || term_month_year == "", 
-                course_num == null ||  course_num == "", 
+            if (course_num == null ||  course_num == "", 
                 course_name == null ||  course_name == "",
                 instructor_assigned_name == null ||  instructor_assigned_name == "") {
                     alert("Please Fill All Required Fields");

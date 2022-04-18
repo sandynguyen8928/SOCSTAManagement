@@ -66,7 +66,6 @@
                 {
                     //display secured page 
                     $_SESSION["username"]=$username; // make user session
-                    $_SESSION["user_type"]=$username; // make user type session 
                     header("Location:login.php");
                 }
                 else{

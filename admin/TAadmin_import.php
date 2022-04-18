@@ -1,3 +1,6 @@
+<?php
+    include '../header.php';
+?>
 <!-- TA Admin Import Page -->
 
 <div class="allPages">

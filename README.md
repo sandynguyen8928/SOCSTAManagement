@@ -18,6 +18,8 @@ userinfo.csv --> List of all user account information
 
 profAndCour.csv --> list of all professors and their courses
 
+TAratings.csv --> all ta ratings submitted
+
 Admin:
 
 Admin > Get a Course's TA History > 1. Check one of the boxes 2.Choose a TA/Courses (if necessary).

@@ -6,7 +6,7 @@
         // --------- ROUTING WEBPAGE BODY -----------
         if (sizeof($_GET)==0 || $_GET["Page"]=="home") {
             // HOME PAGE
-            display("matter/home.html");
+            header('Location: home.php');
         } 
         else {
             // ERROR PAGE

@@ -19,29 +19,31 @@
 <!----------------- BODY ----------------->
 </body>
   <div class="body">
-    <h2>Select User:</h2>
-    <form name="deleteUserForm" id="deleteUserForm" action="deleteUser.php" method="POST">
-        <select name="user" id="user">
-            <?php
-                // read from userinfo.csv for list of users' names
-                $file = fopen("../userinfo.csv", "r");
-                // $array = array();
-                if($file) {
-                    while (($line = fgets($file)) !== false) {
-                        $param = explode(",", $line);
-                        echo "<option value='{$line}'>$param[0]</option>";
-                        // $array[] = $param[0];
+    <div class="loginContainer" style="text-align: center;">
+        <h2>Select User:</h2>
+        <form name="deleteUserForm" id="deleteUserForm" action="deleteUser.php" method="POST">
+            <select name="user" id="user">
+                <?php
+                    // read from userinfo.csv for list of users' names
+                    $file = fopen("../userinfo.csv", "r");
+                    // $array = array();
+                    if($file) {
+                        while (($line = fgets($file)) !== false) {
+                            $param = explode(",", $line);
+                            echo "<option value='{$line}'>$param[0]</option>";
+                            // $array[] = $param[0];
+                        }
                     }
-                }
-                // foreach($array as $user) {
-                    // echo "<option value=$line>{$user}</option>";
-                // }  
-            ?>
-        </select>
-        <div class="loginButton">
-            <input type="submit" name="submitButton" value="Select/Delete" class="loginButton">
-        </div> 
-    </form>
+                    // foreach($array as $user) {
+                        // echo "<option value=$line>{$user}</option>";
+                    // }  
+                ?>
+            </select>
+            <div class="loginButton">
+                <input type="submit" name="submitButton" value="Select/Delete" class="loginButton">
+            </div> 
+        </form>
+    </div>
   </div>
 </body>
 

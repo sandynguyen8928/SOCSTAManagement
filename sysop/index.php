@@ -18,7 +18,7 @@
         } 
         else if ($_GET["Page"]=="editUser") {
             // MANAGE USER - edit user
-            display("matter/editUser.html");
+            header('Location: editUser.php');
         } 
         else if ($_GET["Page"]=="importProfCour") {
             // INFO PAGE
