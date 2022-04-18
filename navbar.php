@@ -12,8 +12,8 @@
           $_SESSION["sysop"] = $param[9];
         }
       }
+      fclose($file);
     }
-    fclose($file);
 
     // conditonal navbar
     if($_SESSION["username"] == null){
