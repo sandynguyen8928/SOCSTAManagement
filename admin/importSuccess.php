@@ -62,13 +62,13 @@
         else {
             $myWritefileCourse = fopen('../databases/CourseDatabase.csv', 'w');
             $line = fgets($myReadfile);
-            $str = $line.",Num_TA";
+            $str = trim($line).",Num_TA\n";
             fwrite($myWritefileCourse, $str);
 
             while (($line = fgets($myReadfile)) !== false) {
                 $param = explode(",", $line);
                 $numTA = ceil($param[5] / $param[6]);
-                $str = $line.",".$numTA;
+                $str = trim($line).",".$numTA."\n";
                 fwrite($myWritefileCourse, $str);
             }
         }

@@ -13,11 +13,14 @@
   $myfile2 = fopen("../databases/report.csv", "r");
   $myfile3 = fopen("../databases/wishlist.csv", "r");
   $myfile4 = fopen("../databases/performance.csv", "r");
+  $myfile5 = fopen("../databases/TACourseHistory.csv", "r");
+  $myfile6 = fopen("../databases/TACourseHistory.csv", "r");
 
   // Arrays holding information needed from files
   $array = array();
   $studentComment = "";
   $perf = array();
+  $courses = array();
 
   // Get TA Cohort info
   if ($myfile1) {
@@ -80,6 +83,39 @@
       $array[] = " ";
     }
   }
+
+  // Get current date
+  $year = 1000;
+  $term = "";
+  if ($myfile5) {
+    while (($line = fgets($myfile5)) !== false) {
+      $param = explode(",", $line);
+      $date = explode(" ", $param[0]);
+
+      if ($date[2] > $year) {
+        $year = $date[2];
+        $term = "$date[0] $date[1]";
+      }
+      if ($date[2] == $year) {
+        if ($date[0] == "Fall") {
+          $term = "Fall";
+        }
+        else if($date[0] == "Summer") {
+          $term = "Summer";
+        }
+      }
+    }
+  }
+
+  if ($myfile6) {
+    while (($line = fgets($myfile6)) !== false) {
+      $param = explode(",", $line);
+      if ($param[3] == $name && $param[0] == "$term $year") {
+        $courses[] = $param[1];
+      }
+    }
+  }
+
   ?>
 
   <!-- Display all info -->
@@ -90,5 +126,6 @@
     <tr><td>Professor Perfomance Log:</td><td><?php foreach($perf as $lol){ echo $lol; echo "<br>";} ?></td></tr>
     <tr><td>Student Rating Comment:</td><td><?php echo $studentComment ?></td></tr>
     <tr><td>Professor Wish List Membership:</td><td><?php echo $array[2]; ?></td></tr>
+    <tr><td>Courses Assigned This Term:</td><td><?php foreach($courses as $lol){ echo $lol; echo "<br>";} ?></td></tr>
   </table>
 </div>
