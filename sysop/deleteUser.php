@@ -6,7 +6,7 @@
     if(isset($_POST["submitButton"])){
         // find user and delete row/line
         $user = $_POST['user'];
-        $file = '../databases/userinfo.csv';
+        $file = '../databases/userInfo.csv';
         $contents = file_get_contents($file);
         $contents = str_replace(trim($user)."\n",'', $contents);
         file_put_contents($file, $contents);
@@ -24,8 +24,8 @@
         <form name="deleteUserForm" id="deleteUserForm" action="deleteUser.php" method="POST">
             <select name="user" id="user">
                 <?php
-                    // read from userinfo.csv for list of users' names
-                    $file = fopen("../databases/userinfo.csv", "r");
+                    // read from userInfo.csv for list of users' names
+                    $file = fopen("../databases/userInfo.csv", "r");
                     // $array = array();
                     if($file) {
                         while (($line = fgets($file)) !== false) {

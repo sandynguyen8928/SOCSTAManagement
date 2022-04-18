@@ -7,7 +7,7 @@
         // find user and delete row/line
         $old = $_POST['old'];
         $new = $_POST['newInfo'];
-        $file = '../databases/userinfo.csv';
+        $file = '../databases/userInfo.csv';
         $contents = file_get_contents($file);
         $contents = str_replace($old,$new, $contents);
         file_put_contents($file, $contents);
@@ -26,8 +26,8 @@
             <form name="editUserForm" id="editUserForm" action="editUser.php" method="POST" onsubmit= "return checkEmpty()">
                 <select name="user" id="user">
                     <?php
-                        // read from userinfo.csv for list of users' names
-                        $file = fopen("../databases/userinfo.csv", "r");
+                        // read from userInfo.csv for list of users' names
+                        $file = fopen("../databases/userInfo.csv", "r");
                         // $array = array();
                         if($file) {
                             while (($line = fgets($file)) !== false) {

@@ -3,7 +3,7 @@
   // listen for POST request after form is submitted 
   if(isset($_POST["createButton"])){
       // Writes in file
-      $myfile = fopen("../databases/userinfo.csv", "a") or die("Unable to open file!");
+      $myfile = fopen("../databases/userInfo.csv", "a") or die("Unable to open file!");
       $string = $_POST["legal_name"].",".$_POST["email"].",".$_POST["student_ID"].",".$_POST["username"].",".$_POST["password"].",[".$_POST["courses_registered_in"]."]"."\n"; 
       fwrite($myfile, $string);
       fclose($myfile); 

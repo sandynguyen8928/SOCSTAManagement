@@ -52,7 +52,7 @@
     }
 
     // check if user exists
-    $filename = 'databases/userinfo.csv';
+    $filename = 'databases/userInfo.csv';
     $myfile = file_get_contents($filename);
     // check if username is empty
     if(!empty($username)){
