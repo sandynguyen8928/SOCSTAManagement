@@ -17,28 +17,10 @@
     </div>
   </div>
 
-  <style>
-    tr{
-      background: rgba(164,156,164,0.1);
-    }
-    tr:hover{
-      background: rgba(164,156,164,0.5);
-    }
-    tr:first-child:hover{
-      background: rgba(164,156,164,0.1);
-    }
-    th, td{
-      border: 1px solid #4A524A;
-      padding: 5px;
-    }
-    table{
-      border: 5px solid #A49CA4;
-    }
-  </style>
-
   <script>
     window.onload = function() {
       
+      // ajax call to read TACourseHistory to populate dropdown select menu
       try{
         var asyncReq = new XMLHttpRequest();
         asyncReq.addEventListener("readystatechange", function(){
@@ -46,6 +28,7 @@
             var text = this.responseText;
             var entries = new Array();
             var entry = "";
+            // parse csv
             for(var i=0; i<text.length; i++){
               if(text[i]==="\n") {
                 entries.push(entry);
@@ -56,12 +39,14 @@
             entries.push(entry);
             var names = new Array();
             var select = document.getElementById("TA");
+            // read each entry
             for(var i=1; i<entries.length; i++){
               var data = entries[i].split(',');
               var term = data[0];
               var course = data[1];
               
               var name = data[3];
+              // if entry matches & name hasn't been pushed to names array yet, create option node & push to array
               if(course==="COURSE" && term==="TERM" && !names.includes(name)){
                 
                 names.push(name);
@@ -81,6 +66,7 @@
     };
 
 
+    // show form when TA is selected
     var selection = document.getElementById("TA");
     selection.addEventListener("change", function(){
       var TA = selection.options[selection.selectedIndex].text;

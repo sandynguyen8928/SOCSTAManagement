@@ -45,9 +45,11 @@
     </div>
   
     <script>
-      // load TAs in dropdown
-      window.onload = function() {
       
+      window.onload = function() {
+        
+
+      // load TAs in dropdown
       try{
         var asyncReq = new XMLHttpRequest();
         asyncReq.addEventListener("readystatechange", function(){
@@ -68,12 +70,13 @@
 
             // parse csv
             var names = new Array();
-            var select = document.getElementById("TA");
+            
             for(var i=1; i<entries.length; i++){
               var data = entries[i].split(',');
               var term = data[0];
               var course = data[1];
               var name = data[3];
+              var select = document.getElementById("TA");
               // if course & term matches, add to selection dropdown
               if(course==="COURSE" && term==="TERM" && !names.includes(name)){
                 
@@ -82,6 +85,51 @@
                 newOption.innerHTML = name;
                 select.appendChild(newOption);
               }
+            }
+            // second ajax call to load prof(s) in dropdown
+            try{
+              var asyncReq2 = new XMLHttpRequest();
+              asyncReq2.addEventListener("readystatechange", function(){
+                if(asyncReq2.readyState==4 && asyncReq2.status==200){
+                  var text = this.responseText;
+
+                  // get entries
+                  var entries = new Array();
+                  var entry = "";
+                  for(var i=0; i<text.length; i++){
+                    if(text[i]==="\n") {
+                      entries.push(entry);
+                      entry="";
+                    }
+                    else entry+=text[i];
+                  }
+                  entries.push(entry);
+
+                  // parse csv
+                  var names = new Array();
+                  
+                  for(var i=1; i<entries.length; i++){
+                    var data = entries[i].split(',');
+                    var term = data[0];
+                    var course = data[1];
+                    var name = data[4];
+                    var select = document.getElementById("TA");
+                    // if course & term matches, add to selection dropdown
+                    if(course==="COURSE" && term==="TERM" && !names.includes(name)){
+                      
+                      names.push(name);
+                      var newOption = document.createElement("option");
+                      newOption.innerHTML = name;
+                      select.appendChild(newOption);
+                    }
+                  }
+                }
+                
+              });
+              asyncReq2.open("GET", "../databases/CourseDatabase.csv", true);
+              asyncReq2.send();
+            } catch (exception) {
+              alert("Request failed.");
             }
           }
           

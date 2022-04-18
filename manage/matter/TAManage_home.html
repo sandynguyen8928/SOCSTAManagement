@@ -29,17 +29,21 @@
                   break;
                 }
               }
-              
-// AHHHHHHHHH FIGURE OUT HOW TO GET POSITION (TA, PROF) && TERM FOR EACH COURSE
-
-
+              // get user info
+              var TAname = userData[0];
+              var prof = userData[6];
+              var ta = userData[8];
               // get courses from that user data
               var courses = userData[10].split(';');
               for(var course of courses){
-                populateCourseDiv(course);
+                populateCourseDiv(course, TAname);
+              }
+
+              // hide links if user is a TA
+              if(ta) {
+                hideLinks(TAname);
               }
             }
-            
           });
           asyncReq.open("GET", "../../userInfo.csv", true);
           asyncReq.send();
@@ -49,16 +53,60 @@
       }
 
 
+      function hideLinks(TAName){
+        try{
+          var asyncReq = new XMLHttpRequest();
+          asyncReq.addEventListener("readystatechange", function(){
+            if(asyncReq.readyState==4 && asyncReq.status==200){
+              var text = this.responseText;
+              
+              // parse csv file
+              var entries = parseCSV(text);
+              var TACourses = new Array();
+              
+              // push all entries that match TAname
+              for(var entry of entries){
+                var data = entry.split(',');
+                if(data[3]==TAName) {
+                  TACourses.push(data);
+                }
+              }
+              
+              // loop through all courses
+              for(var course of TACourses){
+                var name = course[1];
+                var term = course[0];
+                var id = ""+name+term;
+                // get course node
+                var courseDiv = document.getElementById(id);
+                // hide links for course node
+                courseDiv.getElementsByTagName("a")[0].setAttribute("style","display:none");
+                courseDiv.getElementsByTagName("a")[1].setAttribute("style","display:none");
+                courseDiv.getElementsByTagName("a")[2].setAttribute("style","display:none");
+              }
+            }
+          });
+          asyncReq.open("GET", "../databases/TACourseHistory.csv", true);
+          asyncReq.send();
+        } catch (exception) {
+          alert("Request failed.");
+        }
+      }
       
 
-      function populateCourseDiv(course){
+      function populateCourseDiv(course, name){
         var courseDiv = document.createElement("div");
 
+        // parse courses_registered_in from userInfo.csv
+        var temp = course.split(' ');
+        var course = ""+temp[0]+" "+temp[1];
+        var term = ""+temp[2]+" "+temp[3]+" "+temp[4];
+
         // term
-        var term = document.createElement("p");
-        term.setAttribute("class", "term");
-        term.innerHTML = "Fall September 2021";
-        courseDiv.appendChild(term);
+        var termNode = document.createElement("p");
+        termNode.setAttribute("class", "term");
+        termNode.innerHTML = term;
+        courseDiv.appendChild(termNode);
         
         // course name
         var courseName = document.createElement("p");
@@ -67,25 +115,39 @@
         courseDiv.appendChild(courseName);
 
         // create report link
-        createLink("TAManage_report.php","TAManage-report",course,term.innerHTML,"Jin+Guo","All TAs Report", courseDiv);
+        createLink("TAManage_report.php","TAManage-report",course,term,"All TAs Report", courseDiv);
         // create wishlist link
-        createLink("TAManage.php","TAManage-wishlist", course, term.innerHTML,"Jin+Guo","TA Wish-List", courseDiv);
+        createProfLink("TAManage.php","TAManage-wishlist", course, term,name,"TA Wish-List", courseDiv);
         // create performance link
-        createLink("TAManage.php","TAManage-performance", course, term.innerHTML,"Jin+Guo","TA Performance Log", courseDiv);
+        createProfLink("TAManage.php","TAManage-performance", course, term,name,"TA Performance Log", courseDiv);
         // create ohr link
-        createLink("TAManage.php","TAManage-OHR", course, term.innerHTML,"Jin+Guo","Office Hours and Responsibilities", courseDiv);
+        createLink("TAManage.php","TAManage-OHR", course, term,"Office Hours and Responsibilities", courseDiv);
 
         courseDiv.setAttribute("class", "courseFunction");
+        courseDiv.setAttribute("id", course+term);
         var container = document.getElementsByClassName("courseFunctionContainer")[0];
         container.appendChild(courseDiv);
       }
 
-      function createLink(program, page, course, term, prof, innerHTML, courseDiv){
-        // var courseDiv = document.createElement("div");
+      // links that require prof's name
+      function createProfLink(program, page, course, term, prof, innerHTML, courseDiv){
         var link = document.createElement("a");
-        // FIGURE OUT HOW TO ADD TERM & PROF NAME
         var href = program+"?Page="+page+"&Course="+course+"&Term="+term+"&Prof="+prof;
         link.setAttribute("href", href);
+        var id = ""+innerHTML;
+        link.setAttribute("id",id);
+        link.innerHTML = innerHTML;
+        courseDiv.appendChild(link);
+      }
+
+      // links that don't require prof's name
+      function createLink(program, page, course, term, innerHTML, courseDiv){
+        // var courseDiv = document.createElement("div");
+        var link = document.createElement("a");
+        var href = program+"?Page="+page+"&Course="+course+"&Term="+term;
+        link.setAttribute("href", href);
+        var id = ""+innerHTML;
+        link.setAttribute("id",id);
         link.innerHTML = innerHTML;
         courseDiv.appendChild(link);
       }

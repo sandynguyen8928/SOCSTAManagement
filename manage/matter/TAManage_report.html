@@ -7,23 +7,6 @@
     </div>
   </div>
 
-  <style>
-    tr{
-      background: rgba(164,156,164,0.1);
-    }
-    th, td{
-      border: 1px solid #4A524A;
-      padding: 5px;
-    }
-    table{
-      border: 5px solid #A49CA4;
-    }
-    li {
-      text-align: left;
-      margin-left: 10px;
-    }
-  </style>
-
   <script>
     window.onload = function() {
       
@@ -68,7 +51,6 @@
                 nameNode.innerHTML = name;
                 newRow.appendChild(nameNode);
                 
-                //// i might move more of this functionality to the parseList fn to clean this up a bit
                 // add responsibilities
                 var respNode = document.createElement("td");
                 var listNode = parseList(assigned_responsibility);
