@@ -184,7 +184,7 @@ body {
   transition: 0.3s ease;
 }
 
-/* ADMIN CSS */
+/* ADMIN CSS
 .allPages {
   padding: 50px;
 }
@@ -255,9 +255,9 @@ a.importAddTitle:link {
 table {
   margin-left:auto;
   margin-right:auto;
-}
+} */
 
-/* tr{
+tr{
   background: rgba(164,156,164,0.1);
 }
 td.unclaimed:hover{
@@ -271,9 +271,9 @@ th, td{
   padding: 5px;
   width: 16.5%;
   text-align: center;
-} */
+}
 
-.tableInfo th, td{
+/* .tableInfo th, td{
   border: 1px solid #4A524A;
   padding: 5px;
   width: 16.5%;
@@ -320,4 +320,4 @@ th, td{
 .tableAddRemove td:first-child {
   background-color: #a49ca4;
   font-weight: bold;
-}
+} */
