@@ -5,7 +5,7 @@
   // listen for POST request after form is submitted 
   if(isset($_POST["submitButton"])){
       // Writes in file legal_name,term_month_year,course_num,rating,comment
-      $file = fopen("database/TAratings.csv", "a") or die("Unable to open file!");
+      $file = fopen("../databases/TAratings.csv", "a") or die("Unable to open file!");
       $term_month_year = $_POST["term_month"]." ".$_POST["year"];
       $string = $_POST["legal_name"].",".$term_month_year.",".$_POST["course_num"].",".$_POST["rating"].",".$_POST["comment"]."\n";
       fwrite($file, $string);

@@ -5,7 +5,7 @@
     // listen for POST request after form is submitted 
     if(isset($_POST["importButton"])){
         $importFile = file_get_contents($_FILES["importFile"]["tmp_name"]);
-        $databaseFile = fopen("database/profAndCour.csv", "a") or die("Unable to open file!");
+        $databaseFile = fopen("../databases/profAndCour.csv", "a") or die("Unable to open file!");
         fwrite($databaseFile, $importFile);
         fclose($file);
         fclose($databaseFile);

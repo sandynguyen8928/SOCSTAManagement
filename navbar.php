@@ -1,6 +1,6 @@
 <?php 
     // get fields
-    $file = fopen("userInfo.csv","r");
+    $file = fopen("databases/userInfo.csv","r");
     if($file){
       while(($line = fgets($file)) !== false){
         $param = explode(",",$line);

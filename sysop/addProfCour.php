@@ -3,7 +3,7 @@
   // listen for POST request after form is submitted 
   if(isset($_POST["addButton"])){
       // Writes in file
-      $file = fopen("database/profAndCour.csv", "a") or die("Unable to open file!");
+      $file = fopen("../databases/profAndCour.csv", "a") or die("Unable to open file!");
       $term_month_year = $_POST["term_month"]." ".$_POST["year"];
       $string = $term_month_year.",".$_POST["course_num"].",".$_POST["course_name"].",".$_POST["instructor_assigned_name"]."\n";
       fwrite($file, $string);
