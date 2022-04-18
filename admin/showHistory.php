@@ -41,7 +41,6 @@
                 // If want to see a TA's history
                 else if ($history == "TA_history"){
                     $myOption = $option[0];
-                    //echo "<h2 class='titleFeature'>$myOption</h2>";
                     if ($param[3] == $myOption)
                     foreach ($param as $cell) {
                         echo "<td>" . htmlspecialchars($cell) . "</td>";

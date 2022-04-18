@@ -18,9 +18,10 @@
 
   // Arrays holding information needed from files
   $array = array();
-  $studentComment = "";
+  $studentComment = array();
   $perf = array();
   $courses = array();
+  $wishlist = array();
 
   // Get TA Cohort info
   if ($myfile1) {
@@ -44,12 +45,12 @@
     while (($line = fgets($myfile2)) !== false) {
       $param = explode(",", $line);
       if ($param[2] == $name) {
-        if ($param[4] != "NA") {
+        if (trim($param[4]) != "NA") {
           $array[] = $param[4];
           $present = 1;
         }
-        if ($param[6] != "NA"){
-          $studentComment .= $param[6];
+        if (trim($param[6]) != "NA"){
+          $studentComment[] = $param[6];
         }
       }
     }
@@ -70,17 +71,11 @@
 
   // Get professors' wishlist info
   if ($myfile3) {
-    $present=0;
     while (($line = fgets($myfile3)) !== false) {
       $param = explode(",", $line);
       if (trim($param[3]) == $name) {
-        $array[] = $param[2];
-        $present=1;
-        break;
+        $wishlist[] = $param[2];
       }
-    }
-    if ($present == 0) {
-      $array[] = " ";
     }
   }
 
@@ -124,8 +119,8 @@
     <tr><td>TA Cohort:</td><td><?php echo $array[0]; ?></td></tr>
     <tr><td>Student Rating Average:</td><td><?php echo $array[1]; ?></td></tr>
     <tr><td>Professor Perfomance Log:</td><td><?php foreach($perf as $lol){ echo $lol; echo "<br>";} ?></td></tr>
-    <tr><td>Student Rating Comment:</td><td><?php echo $studentComment ?></td></tr>
-    <tr><td>Professor Wish List Membership:</td><td><?php echo $array[2]; ?></td></tr>
+    <tr><td>Student Rating Comment:</td><td><?php  foreach($studentComment as $lol){ echo $lol; echo "<br>";} ?></td></tr>
+    <tr><td>Professor Wish List Membership:</td><td><?php  foreach($wishlist as $lol){ echo $lol; echo "<br>";} ?></td></tr>
     <tr><td>Courses Assigned This Term:</td><td><?php foreach($courses as $lol){ echo $lol; echo "<br>";} ?></td></tr>
   </table>
 </div>
