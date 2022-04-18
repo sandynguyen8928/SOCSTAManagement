@@ -4,6 +4,10 @@ Sandy Nguyen, Sarah Lee, Vanna Chang
 
 https://www.cs.mcgill.ca/~snguye44/finalproject
 
+Please use this account to login
+Username: jlawrence
+Password: password123
+
 Database:
 
 TACohort.csv and CourseQuota.csv --> CSV files from McGill
