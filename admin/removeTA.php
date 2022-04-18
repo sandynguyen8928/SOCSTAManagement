@@ -91,16 +91,18 @@
 
     
   <?php
-
     // Retrieve data from form
     $course = $_POST["myCourse"];
     $TA = $_POST["myTA"];
     $term = $_POST["myTerm"];
     $year = $_POST["myYear"];
     $myfile = fopen("../databases/TACourseHistory.csv", "r");
+    //$myfileCount = fopen("../databases/TACourseHistory.csv", "r");
     $array = array();
 
     $present = 0;
+    $count = 1;
+    $numLines = count(file("../databases/TACourseHistory.csv"));
 
     if ($myfile) {
       while (($line = fgets($myfile)) !== false) {
@@ -108,10 +110,15 @@
         
         // If line corresponds to data retrieved
         if ($param[1] == $course && $param[3] == $TA && $param[0] == "$term $year" ) {
-
           // Replace line with empty
           $contents = file_get_contents("../databases/TACourseHistory.csv");
-          $contents = str_replace("\n".$line,'',$contents);
+          
+          if ($count == $numLines) {
+            $contents = str_replace("\n".$line,'',$contents);
+          }
+          else {
+            $contents = str_replace($line,'',$contents);
+          }
           file_put_contents("../databases/TACourseHistory.csv", $contents);
           $present = 1;
           echo "<h2 class=optionTitle>";
@@ -121,6 +128,7 @@
           echo "!</h2>";
           break;
         }
+        $count = $count + 1;
       }
 
       // If we can't find the line info
