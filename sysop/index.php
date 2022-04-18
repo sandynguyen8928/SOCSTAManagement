@@ -22,7 +22,7 @@
         } 
         else if ($_GET["Page"]=="importProfCour") {
             // INFO PAGE
-            display("importProfCour.php");
+            header('Location: importProfCour.php');
         } 
         else if ($_GET["Page"]=="addProfCour") {
             // INFO PAGE

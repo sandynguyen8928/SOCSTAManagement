@@ -136,6 +136,21 @@ body {
   font-size: larger;
 }
 
+.importContainer{
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 3%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background: #C4C4C4;
+  border-radius: 20px;
+  height: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 /* COURSE/FUNCTIONS */ 
 .courseFunctionContainer{
   display: flex;
