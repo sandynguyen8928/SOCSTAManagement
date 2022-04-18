@@ -21,7 +21,6 @@
         <p class="loginText">New Professor and Course</p>
 
         <!-- New User Info form -->
-        <!-- Note: VSC throws an error "A 'return' statement can only be used within a function body" but can be disregarded -->
         <form name="addProfCourForm" id="addProfCourForm" action="addProfCour.php" method="POST" onsubmit= "return checkEmpty()">
           
         <label for="term_month_year">Please select the term and year:</label> <br>

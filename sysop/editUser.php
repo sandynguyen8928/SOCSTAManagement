@@ -38,6 +38,7 @@
                     ?>
                 </select> <br> <br>
 
+                <p>Select field to edit: <p>
                 <input type="radio" name="field" value="Name">
                 <label>Name</label>
                 <input type="radio" name="field" value="Email">

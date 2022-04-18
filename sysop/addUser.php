@@ -37,7 +37,7 @@
           <label for="password">Password</label> <br>
           <input type="password" name="password" class="loginBox"><br>
   
-          <label for="courses_registered_in">Courses</label> <br>
+          <label for="courses_registered_in">Courses (Please follow each course with term and separate with semi-colon)</label> 
           <input type="text" name="courses_registered_in" class="loginBox"><br>
   
           <div class="loginButton">

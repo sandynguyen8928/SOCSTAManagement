@@ -40,7 +40,7 @@
                 ?>
             </select>
             <div class="loginButton">
-                <input type="submit" name="submitButton" value="Select/Delete" class="loginButton">
+                <input type="submit" name="submitButton" value="Delete" class="loginButton">
             </div> 
         </form>
     </div>
