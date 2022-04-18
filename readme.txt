@@ -1,5 +1,9 @@
 # SOCSTAManagement
 
+Sandy Nguyen, Sarah Lee, Vanna Chang
+
+https://www.cs.mcgill.ca/~snguye44/finalproject
+
 Database:
 
 TACohort.csv and CourseQuota.csv --> CSV files from McGill
