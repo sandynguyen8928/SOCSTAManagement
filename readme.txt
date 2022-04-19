@@ -13,6 +13,8 @@ For professor perspective:
 Username: jvybs
 Password: password123
 
+*Note: the files in the .zip can be run locally but the files on mimi are slightly different (with different paths to match the mimi directory structure)
+
 Database:
 
 TACohort.csv and CourseQuota.csv --> CSV files from McGill
