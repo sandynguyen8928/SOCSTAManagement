@@ -9,7 +9,7 @@
     <h2 class="optionTitle">Select a TA:</h2>
 
     <!-- Form -->
-    <form action="showTAInfo.php" method="post" class="optionTitle">
+    <form action="showTAinfo.php" method="post" class="optionTitle">
       <select name="myTA" id="myTA" value="myTA" class="dropdown">
         <?php
         $myfile = fopen("../databases/TADatabase.csv", "r");
