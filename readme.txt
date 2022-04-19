@@ -2,7 +2,7 @@
 
 Sandy Nguyen, Sarah Lee, Vanna Chang
 
-https://www.cs.mcgill.ca/~snguye44/finalproject
+https://www.cs.mcgill.ca/~slee347/SOCSTAManagement/login.php
 
 Please use this account to login
 Username: jlawrence
