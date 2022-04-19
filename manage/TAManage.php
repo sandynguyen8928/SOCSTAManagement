@@ -1,5 +1,5 @@
 <?php 
-    include '../header.php';
+    include '/home/2019/slee347/public_html/SOCSTAManagement/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,27 +13,27 @@
             if (sizeof($_GET)==0 || $_GET["Page"]=="Home") {
 
                 // HOME PAGE
-                display("matter/TAManage_home.html");
+                display("/home/2019/slee347/public_html/SOCSTAManagement/manage/matter/TAManage_home.html");
             } else if($_GET["Page"]=="TAManage-submitted"){
                 
                 // INFO PAGE
-                display("matter/TAManage_submitted.html");
+                display("/home/2019/slee347/public_html/SOCSTAManagement/manage/matter/TAManage_submitted.html");
             } else if ($_GET["Page"]=="TAManage-OHR") {
 
                 // INFO PAGE
-                display("matter/TAManage_OHR.html");
+                display("/home/2019/slee347/public_html/SOCSTAManagement/manage/matter/TAManage_OHR.html");
             } else if ($_GET["Page"]=="TAManage-performance") {
                 
                 // INFO PAGE
-                display("matter/TAManage_performance.html");
+                display("/home/2019/slee347/public_html/SOCSTAManagement/manage/matter/TAManage_performance.html");
             } else if ($_GET["Page"]=="TAManage-wishlist") {
 
                 // INFO PAGE
-                display("matter/TAManage_wishlist.html");
+                display("/home/2019/slee347/public_html/SOCSTAManagement/manage/matter/TAManage_wishlist.html");
             } else if ($_GET["Page"]=="TAManage-report") {
 
                 // INFO PAGE
-                display("matter/TAManage_report.html");
+                display("/home/2019/slee347/public_html/SOCSTAManagement/manage/matter/TAManage_report.html");
             } else {
     
 

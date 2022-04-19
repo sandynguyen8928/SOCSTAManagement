@@ -9,9 +9,8 @@
       ('student_comments') => "student_comments"
     )
   );
-
   
-  $TACourseHistory = fopen("../databases/TACourseHistory.csv", "r") or die("Unable to open file");
+  $TACourseHistory = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/TACourseHistory.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgets($TACourseHistory);
   // loop through to populate first three columns (term, course, name)
@@ -27,9 +26,8 @@
   }
   fclose($TACourseHistory);
 
-
 // loop through OHR.csv to populate assigned responsibilities, delimited by ;
-  $OHR = fopen("../databases/OHR.csv", "r") or die("Unable to open file");
+  $OHR = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/OHR.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($OHR);
   while(!feof($OHR)) {
@@ -58,7 +56,7 @@
 
 
 // loop through student ratings to get avg for each TA
-  $rate = fopen("../databases/studentRating_STUB.csv", "r") or die("Unable to open file");
+  $rate = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/TAratings.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($rate);
   while(!feof($rate)) {
@@ -68,8 +66,8 @@
     $rating = intval($line[3]);
 
     // entry key
-    $term = $line[2];
-    $course = $line[1];
+    $term = $line[1];
+    $course = $line[2];
     $name = $line[0];
     $entry = "\n".$term.','.$course.','.$name.',';
     
@@ -81,9 +79,9 @@
     }
   }
   fclose($rate);
-
-// loop through performance.csv to populate performance log comments, delimited by ;
-  $performance = fopen("../databases/performance.csv", "r") or die("Unable to open file");
+  
+  // loop through performance.csv to populate performance log comments, delimited by ;
+  $performance = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/performance.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($performance);
   while(!feof($performance)) {
@@ -108,7 +106,7 @@
   fclose($performance);
 
 // loop through student ratings to get student comments, delimited by ;
-  $performance = fopen("../databases/studentRating_STUB.csv", "r") or die("Unable to open file");
+  $performance = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/TAratings.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($performance);
   while(!feof($performance)) {
@@ -117,11 +115,11 @@
     // student comment
     $comment = $line[4];
     // entry key
-    $term = $line[2];
-    $course = $line[1];
+    $term = $line[1];
+    $course = $line[2];
     $name = $line[0];
     $entry = "\n".$term.','.$course.','.$name.',';
-    
+  
     // check for entry key equality in $entries; if match, then push to array
     foreach($entries as &$row){
       if(strcmp($entry,$row['entry_key'])==0) {
@@ -179,7 +177,7 @@
   }
 
   // write to report.csv
-  $file = fopen("../databases/report.csv", "w") or die("Unable to open file");
+  $file = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/report.csv", "w") or die("Unable to open file");
   foreach($entries as &$row){
     foreach($row as $data) fwrite($file, $data);
   }

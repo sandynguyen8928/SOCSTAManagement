@@ -1,5 +1,7 @@
 term_month_year,course_num,TA_name,assigned_responsibility,student_rating_avg,performance_comments,student_comments
-Fall September 2021,COMP 303,Jennifer Lawrence,Office Hour;attending lectures,NA,NA,NA
-Winter January 2022,COMP 307,Jennifer Lawrence,NA,4.5,she is cool;great!,i love Jennifer;nice!
+Fall September 2021,COMP 303,Jennifer Lawrence,Office Hour;attending lectures,4,NA,She is hardworking
+Winter January 2022,COMP 307,Jennifer Lawrence,NA,NA,she is cool;great!,NA
 Fall September 2021,COMP 307,Jane Winston,Lecture;grading,NA,NA,NA
 Winter January 2022,COMP 303,Jane Winston,NA,NA,Jane is an ok TA.,NA
+Winter January 2022,COMP 307,John Doe,NA,NA,NA,NA
+Fall September 2021,COMP 307,Bob Smith,NA,NA,NA,NA

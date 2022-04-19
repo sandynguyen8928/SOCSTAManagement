@@ -126,7 +126,7 @@
                 }
                 
               });
-              asyncReq2.open("GET", "../databases/CourseDatabase.csv", true);
+              asyncReq2.open("GET", "/~slee347/SOCSTAManagement/databases/CourseDatabase.csv", true);
               asyncReq2.send();
             } catch (exception) {
               alert("Request failed.");
@@ -134,7 +134,7 @@
           }
           
         });
-        asyncReq.open("GET", "../databases/TACourseHistory.csv", true);
+        asyncReq.open("GET", "/~slee347/SOCSTAManagement/databases/TACourseHistory.csv", true);
         asyncReq.send();
       } catch (exception) {
         alert("Request failed.");
@@ -228,7 +228,7 @@
               }
             }
           });
-          asyncReq.open("GET", "../databases/OHR.csv", true);
+          asyncReq.open("GET", "/~slee347/SOCSTAManagement/databases/OHR.csv", true);
           asyncReq.send();
         } catch (exception) {
           alert("Request failed.");

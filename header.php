@@ -11,7 +11,7 @@
 
 <!---------------- HEADER --------------> 
 <div class="header">
-    <h1><a href="/index.php">SOCS TA MANAGEMENT</a></h1>
+    <h1><a href="/~slee347/SOCSTAManagement/index.php">SOCS TA MANAGEMENT</a></h1>
     <p class="subtitle">McGill | School of Computer Science</p>
 </div>
 
