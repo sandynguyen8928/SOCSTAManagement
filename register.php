@@ -92,7 +92,7 @@
     // listen for POST request after form is submitted 
     if(isset($_POST["registerButton"])){
         // Writes in file
-        $myfile = fopen("databases/userInfo.csv", "a") or die("Unable to open file!");
+        $myfile = fopen("/~slee347/SOCSTAManagement/databases/userInfo.csv", "a") or die("Unable to open file!");
         $string = $_POST["legal_name"].",".$_POST["email"].",".$_POST["student_ID"].",".$_POST["username"].",".$_POST["password"].",".$_POST["student"].",".$_POST["professor"].",".$_POST["administrator"].",".$_POST["ta"].",".$_POST["sysop"].","."[".$_POST["courses_registered_in"]."]"."\n"; 
         fwrite($myfile, $string);
         fclose($myfile); 
