@@ -4,8 +4,13 @@ Sandy Nguyen, Sarah Lee, Vanna Chang
 
 https://www.cs.mcgill.ca/~slee347/SOCSTAManagement/login.php
 
-Please use this account to login
+Please use these accounts to login:
+For TA perspective:
 Username: jlawrence
+Password: password123
+
+For professor perspective:
+Username: jvybs
 Password: password123
 
 Database:
