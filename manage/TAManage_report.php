@@ -10,7 +10,7 @@
     )
   );
   
-  $TACourseHistory = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/TACourseHistory.csv", "r") or die("Unable to open file");
+  $TACourseHistory = fopen("../databases/TACourseHistory.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgets($TACourseHistory);
   // loop through to populate first three columns (term, course, name)
@@ -27,7 +27,7 @@
   fclose($TACourseHistory);
 
 // loop through OHR.csv to populate assigned responsibilities, delimited by ;
-  $OHR = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/OHR.csv", "r") or die("Unable to open file");
+  $OHR = fopen("../databases/OHR.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($OHR);
   while(!feof($OHR)) {
@@ -56,7 +56,7 @@
 
 
 // loop through student ratings to get avg for each TA
-  $rate = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/TAratings.csv", "r") or die("Unable to open file");
+  $rate = fopen("../databases/TAratings.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($rate);
   while(!feof($rate)) {
@@ -81,7 +81,7 @@
   fclose($rate);
   
   // loop through performance.csv to populate performance log comments, delimited by ;
-  $performance = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/performance.csv", "r") or die("Unable to open file");
+  $performance = fopen("../databases/performance.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($performance);
   while(!feof($performance)) {
@@ -106,7 +106,7 @@
   fclose($performance);
 
 // loop through student ratings to get student comments, delimited by ;
-  $performance = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/TAratings.csv", "r") or die("Unable to open file");
+  $performance = fopen("../databases/TAratings.csv", "r") or die("Unable to open file");
   // move pointer to after header row
   fgetcsv($performance);
   while(!feof($performance)) {
@@ -177,7 +177,7 @@
   }
 
   // write to report.csv
-  $file = fopen("/home/2019/slee347/public_html/SOCSTAManagement/databases/report.csv", "w") or die("Unable to open file");
+  $file = fopen("../databases/report.csv", "w") or die("Unable to open file");
   foreach($entries as &$row){
     foreach($row as $data) fwrite($file, $data);
   }
